@@ -44,20 +44,23 @@ PLATES = {
     "polished-nickel bar pulls."),
  15:("The media room",
     "Downstairs. Glazed double doors off the hall, vertical beadboard, blue runner, oak floor."),
- 16:("The stair",
-    "Navy patterned runner · painted balustrade and square newel · natural oak treads."),
- 17:("Downstairs landing, bunkroom beyond",
+ 16:("Downstairs landing, bunkroom beyond",
     "Shiplap walls, round black-strap mirror, and the built-in bunks through the doorway."),
- 18:("Bedroom under the vault",
-    "Pale blue walls · four-unit window bank · black sash with white casing · floor registers."),
- 19:("Bedroom with a recessed dormer",
-    "Two-tone wall, navy and cream bedding, pleated table lamps."),
- 20:("Primary bath",
-    "Carrara wall tile and marble mosaic floor · two rain heads · white-oak vanity · "
-    "polished-nickel fittings."),
- 21:("The bunkroom bath",
+ 17:("The bunkroom bath",
     "Downstairs, serving the bunkroom. Cast-iron trough sink with two wall-mount bridge "
     "faucets, shiplap, recessed medicine cabinet, marble mosaic floor."),
+ 18:("The stair to the second floor",
+    "Up to the primary and guest bedrooms. Navy patterned runner · painted balustrade and "
+    "square newel · natural oak treads."),
+ 19:("The primary bedroom",
+    "Second floor. Pale blue walls · vaulted ceiling · four-unit window bank · black sash "
+    "with white casing · floor registers."),
+ 20:("The guest bedroom",
+    "Second floor. A recessed dormer over the bed, two-tone wall, navy and cream bedding, "
+    "pleated table lamps."),
+ 21:("The primary bath",
+    "Second floor. Carrara wall tile and marble mosaic floor · two rain heads · white-oak "
+    "vanity · polished-nickel fittings."),
  22:("The east elevation and the sunroom wing",
     "The terrace side. Full rear massing, bluestone terrace, steel-and-glass wing at the end."),
  23:("The terrace in use",
@@ -73,8 +76,8 @@ SECTIONS = [
  ("Approach &amp; the Evening Deck", "The motor court, the entry walk, and the deck they watch the sunset from.", [3,4,5,6,7]),
  ("Living", "The main room, and the wall that opens onto the evening deck.", [8,9,10]),
  ("The Barn", "The kitchen and dining room occupy the oldest structure on the property.", [11,12,13,14]),
- ("Downstairs", "Media room, stair, and the bunkroom landing.", [15,16,17]),
- ("Bedrooms &amp; Baths", "Two bedrooms, the primary bath, and the bunkroom bath downstairs.", [18,19,20,21]),
+ ("Downstairs", "The media room, the bunkroom and its bath.", [15,16,17]),
+ ("Upstairs", "The stair, the two bedrooms and the primary bath.", [18,19,20,21]),
  ("The East Terrace", "The side the house looks out over, and where it is actually lived in.", [22,23,24,25]),
 ]
 

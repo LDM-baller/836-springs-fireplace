@@ -40,7 +40,7 @@ for n in sorted(PLATES):
     D[n] = {"w":w,"h":h,"s":"img/%02d-800.jpg"%n,"l":"img/%02d-1600.jpg"%n}
 
 SPAN = {1:12,2:12,3:12,4:7,5:5,6:6,7:6,8:12,9:6,10:6,11:12,12:7,13:5,14:12,
-        15:6,16:6,17:12,18:6,19:6,20:6,21:6,22:12,23:6,24:6,25:12}
+        15:5,16:7,17:5,18:5,19:7,20:7,21:5,22:12,23:6,24:6,25:12}
 
 def esc(s): return s.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
 def slug(name): return name.replace("&amp;","and").lower().replace(" ","-").replace("--","-").strip("-")
