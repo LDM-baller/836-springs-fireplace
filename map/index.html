@@ -68,41 +68,58 @@ h1 { font-family:var(--serif); font-weight:400; font-size:clamp(2rem,5.5vw,3.6re
 .rule { margin:1.1rem 0 0; max-width:64ch; font-size:.84rem; color:var(--muted);
   border-left:2px solid var(--accent); padding-left:.9rem; }
 .rule b { color:var(--ink); font-weight:500; }
-.layout { display:grid; gap:1.8rem; }
-@media (min-width:1000px) { .layout { grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
+.layout { display:grid; gap:1.5rem; }
+@media (min-width:1000px) { .layout { grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);
   gap:2.5rem; align-items:start; } }
+.mapwrap { position:sticky; top:1rem; }
+@media (max-width:999px) { .mapwrap { position:static; } }
+.prompt { display:flex; gap:.55rem; align-items:center; margin:0 0 .7rem; font-family:var(--mono);
+  font-size:.64rem; letter-spacing:.11em; text-transform:uppercase; color:var(--accent); }
+.prompt .dot { width:1.35rem; height:1.35rem; border-radius:50%; background:var(--accent); color:#fff;
+  display:grid; place-items:center; font-size:.6rem; border:2px solid #fff;
+  box-shadow:0 1px 4px rgba(0,0,0,.3); flex:0 0 auto; }
 .mapbox { position:relative; background:var(--paper); border:1px solid var(--rule); box-shadow:var(--shadow); }
 .mapbox > img { width:100%; }
 .pin { position:absolute; transform:translate(-50%,-50%); width:2.1rem; height:2.1rem; min-width:34px;
   min-height:34px; border-radius:50%; border:2px solid #fff; background:var(--accent); color:#fff;
   font-family:var(--mono); font-size:.78rem; font-weight:500; cursor:pointer; padding:0;
-  box-shadow:0 2px 8px rgba(0,0,0,.35); transition:transform .18s ease; }
+  box-shadow:0 2px 8px rgba(0,0,0,.35); transition:transform .18s ease, box-shadow .18s ease; }
 .pin span { pointer-events:none; }
 .pin.inferred { background:var(--warn); border-style:dashed; }
 .pin.confirmed { background:var(--ok); }
-.pin:hover,.pin[aria-current="true"] { transform:translate(-50%,-50%) scale(1.22); }
-.pin[aria-current="true"] { box-shadow:0 0 0 5px rgba(29,60,97,.28),0 2px 8px rgba(0,0,0,.35); }
+.pin:hover { transform:translate(-50%,-50%) scale(1.18); }
+.pin[aria-current="true"] { transform:translate(-50%,-50%) scale(1.35);
+  box-shadow:0 0 0 6px rgba(29,60,97,.25),0 2px 10px rgba(0,0,0,.4); z-index:5; }
 .north { position:absolute; right:2.5%; top:3%; font-family:var(--mono); font-size:.62rem;
   letter-spacing:.14em; color:#333; text-align:center; }
 .north b { display:block; font-size:1.05rem; line-height:1; }
 .mapnote { margin:.8rem 0 0; font-size:.76rem; color:var(--muted); }
-.legend { list-style:none; margin:0 0 1.5rem; padding:0; border-top:1px solid var(--rule); }
-.legrow { display:flex; gap:.85rem; align-items:baseline; width:100%; text-align:left; padding:.7rem 0;
-  background:none; border:0; border-bottom:1px solid var(--rule); cursor:pointer; color:inherit;
-  font-family:inherit; font-size:.9rem; }
-.legrow:hover .lname { color:var(--accent); }
-.legrow[aria-current="true"] .lname { color:var(--accent); font-weight:500; }
-.num { font-family:var(--mono); font-size:.72rem; color:var(--accent); flex:0 0 1.2rem; }
-.lname { flex:1; }
-.cnt { font-family:var(--mono); font-size:.62rem; color:var(--muted); white-space:nowrap; }
-.panel { background:var(--surface); border:1px solid var(--rule); padding:clamp(1.1rem,2.5vw,1.8rem); }
-.panel h2 { font-family:var(--serif); font-weight:400; font-size:1.5rem; margin:0 0 .5rem; }
+.panel { background:var(--surface); border:1px solid var(--rule); border-top:3px solid var(--accent);
+  padding:clamp(1.1rem,2.5vw,1.8rem); scroll-margin-top:1rem; }
+.panel.confirmed { border-top-color:var(--ok); }
+.panel.inferred { border-top-color:var(--warn); }
+.panelhead { display:flex; gap:.9rem; align-items:flex-start; margin-bottom:.5rem; }
+.badge { flex:0 0 auto; width:2.1rem; height:2.1rem; border-radius:50%; display:grid; place-items:center;
+  background:var(--accent); color:#fff; font-family:var(--mono); font-size:.78rem; font-weight:500;
+  border:2px solid #fff; box-shadow:0 2px 8px rgba(0,0,0,.3); }
+.badge.confirmed { background:var(--ok); }
+.badge.inferred { background:var(--warn); border-style:dashed; }
+.panelhead h2 { font-family:var(--serif); font-weight:400; font-size:1.45rem; margin:.05rem 0 .3rem;
+  line-height:1.2; }
 .tag { display:inline-block; font-family:var(--mono); font-size:.56rem; letter-spacing:.13em;
-  text-transform:uppercase; padding:.16rem .45rem; border:1px solid var(--rule); margin-bottom:.7rem; }
+  text-transform:uppercase; padding:.16rem .45rem; border:1px solid var(--rule); }
 .tag.surveyed { color:var(--accent); }
 .tag.inferred { color:var(--warn); border-color:var(--warn); }
 .tag.confirmed { color:var(--ok); border-color:var(--ok); }
-.panel .blurb { margin:0 0 1.3rem; font-size:.88rem; color:var(--muted); }
+.blurb { margin:1rem 0 1.3rem; font-size:.88rem; color:var(--muted); }
+.stepper { display:flex; align-items:center; gap:.7rem; margin-bottom:1.2rem; padding-bottom:1rem;
+  border-bottom:1px solid var(--rule); }
+.stepper button { flex:0 0 auto; min-width:44px; min-height:38px; padding:.4rem .8rem;
+  font-family:var(--mono); font-size:.62rem; letter-spacing:.08em; text-transform:uppercase;
+  background:none; color:var(--muted); border:1px solid var(--rule); cursor:pointer; }
+.stepper button:hover { color:var(--ink); border-color:var(--accent); }
+.stepper .pos { flex:1; text-align:center; font-family:var(--mono); font-size:.62rem;
+  letter-spacing:.11em; text-transform:uppercase; color:var(--muted); }
 .grouphead { font-family:var(--mono); font-size:.6rem; letter-spacing:.16em; text-transform:uppercase;
   color:var(--accent); margin:1.3rem 0 .7rem; padding-bottom:.35rem; border-bottom:1px solid var(--rule); }
 .grouphead:first-of-type { margin-top:0; }
@@ -111,6 +128,8 @@ h1 { font-family:var(--serif); font-weight:400; font-size:clamp(2rem,5.5vw,3.6re
 .thumbs img { width:100%; box-shadow:var(--shadow); cursor:zoom-in; }
 .thumbs figcaption { margin-top:.35rem; font-size:.72rem; color:var(--muted); line-height:1.4; }
 .empty { font-size:.82rem; color:var(--muted); font-style:italic; }
+#pbody { animation:swap .32s ease both; }
+@keyframes swap { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
 .caveat { margin-top:clamp(2rem,5vw,3.5rem); padding:clamp(1.2rem,3vw,2rem); background:var(--surface);
   border:1px solid var(--rule); border-left:3px solid var(--warn); }
 .caveat h2 { font-family:var(--mono); font-size:.64rem; letter-spacing:.18em; text-transform:uppercase;
@@ -128,6 +147,7 @@ h1 { font-family:var(--serif); font-weight:400; font-size:clamp(2rem,5.5vw,3.6re
   width:2.75rem; height:2.75rem; min-width:44px; min-height:44px;
   border:1px solid rgba(244,246,248,.3); background:rgba(8,12,16,.6); color:#F4F6F8;
   font-size:1.1rem; cursor:pointer; }
+@media (prefers-reduced-motion:reduce) { #pbody { animation:none; } .pin { transition:none; } }
 </style>
 </head>
 <body>
@@ -140,21 +160,31 @@ h1 { font-family:var(--serif); font-weight:400; font-size:clamp(2rem,5.5vw,3.6re
 <header class="top">
   <p class="eyebrow">Gary Benz survey &middot; Grimes plan, 18 November 2021</p>
   <h1>Where each photograph was taken</h1>
-  <p class="lede">The surveyed site plan, with the album photographs from the renovation before this one set against the finished house. Pick a marker.</p>
-  <p class="rule"><b>How things are filed:</b> an <b>interior</b> sits under the building it is inside; an <b>exterior</b> sits under the ground the camera was standing on. So every outside view of the barn is under the east terrace rather than under the barn. A few photographs show more than one thing and appear in more than one place.</p>
+  <p class="lede">The surveyed site plan, with the album photographs from the renovation before this one set against the finished house.</p>
+  <p class="rule"><b>How things are filed:</b> an <b>interior</b> sits under the building it is inside; an <b>exterior</b> sits under the ground the camera was standing on. So every outside view of the barn is under the east side rather than under the barn. A few photographs show more than one thing and appear in more than one place.</p>
 </header>
 <div class="layout">
-  <div>
+  <div class="mapwrap">
+    <p class="prompt"><span class="dot">1</span> Tap a marker &mdash; the photographs below change</p>
     <div class="mapbox">
       <img src="../img/plan.jpg" alt="Site plan of 836 Springs Fireplace Road showing the lot, driveway, building footprint and wetland buffer">
       <div class="north"><b>&#8593;</b>N</div>
-      <button class="pin surveyed" style="left:42.0%;top:43.5%" data-z="approach" aria-label="Road and approach"><span>1</span></button><button class="pin confirmed" style="left:60.0%;top:38.0%" data-z="garage" aria-label="The garage — now media room"><span>2</span></button><button class="pin confirmed" style="left:63.0%;top:56.0%" data-z="entrance" aria-label="Front entrance and evening deck"><span>3</span></button><button class="pin confirmed" style="left:72.0%;top:52.0%" data-z="greatroom" aria-label="The great room"><span>4</span></button><button class="pin inferred" style="left:80.0%;top:45.0%" data-z="barn" aria-label="Inside the barn"><span>5</span></button><button class="pin surveyed" style="left:75.0%;top:72.0%" data-z="house" aria-label="The two-storey block"><span>6</span></button><button class="pin confirmed" style="left:83.0%;top:62.0%" data-z="east" aria-label="The east side — terrace, pool, wetland"><span>7</span></button>
+      <button class="pin surveyed" style="left:42.0%;top:43.5%" data-z="approach" aria-label="Marker 1: Road and approach"><span>1</span></button><button class="pin confirmed" style="left:60.0%;top:38.0%" data-z="garage" aria-label="Marker 2: The garage — now media room"><span>2</span></button><button class="pin confirmed" style="left:63.0%;top:56.0%" data-z="entrance" aria-label="Marker 3: Front entrance and evening deck"><span>3</span></button><button class="pin confirmed" style="left:72.0%;top:52.0%" data-z="greatroom" aria-label="Marker 4: The great room"><span>4</span></button><button class="pin inferred" style="left:80.0%;top:45.0%" data-z="barn" aria-label="Marker 5: Inside the barn"><span>5</span></button><button class="pin surveyed" style="left:75.0%;top:72.0%" data-z="house" aria-label="Marker 6: The two-storey block"><span>6</span></button><button class="pin confirmed" style="left:83.0%;top:62.0%" data-z="east" aria-label="Marker 7: The east side — terrace, pool, wetland"><span>7</span></button>
     </div>
-    <p class="mapnote">Lot 130&prime; &times; 220&prime;. Road and motor court west, wetlands east. Solid markers sit on something the survey actually labels; <b>dashed markers are a reading of the photographs, not surveyed positions.</b></p>
+    <p class="mapnote">Lot 130&prime; &times; 220&prime;. Road and motor court west, wetlands east. Solid markers sit on something the survey labels or the owner confirmed; <b>a dashed marker is placed by eye.</b></p>
   </div>
-  <div>
-    <ul class="legend"><li><button class="legrow" data-z="approach"><span class="num">1</span><span class="lname">Road &amp; approach</span><span class="cnt">1 then &middot; 5 now</span></button></li><li><button class="legrow" data-z="garage"><span class="num">2</span><span class="lname">The garage — now media room</span><span class="cnt">2 then &middot; 1 now</span></button></li><li><button class="legrow" data-z="entrance"><span class="num">3</span><span class="lname">Front entrance &amp; evening deck</span><span class="cnt">1 then &middot; 3 now</span></button></li><li><button class="legrow" data-z="greatroom"><span class="num">4</span><span class="lname">The great room</span><span class="cnt">5 then &middot; 2 now</span></button></li><li><button class="legrow" data-z="barn"><span class="num">5</span><span class="lname">Inside the barn</span><span class="cnt">10 then &middot; 4 now</span></button></li><li><button class="legrow" data-z="house"><span class="num">6</span><span class="lname">The two-storey block</span><span class="cnt">1 then &middot; 6 now</span></button></li><li><button class="legrow" data-z="east"><span class="num">7</span><span class="lname">The east side — terrace, pool, wetland</span><span class="cnt">6 then &middot; 4 now</span></button></li></ul>
-    <div class="panel" id="panel"></div>
+  <div class="panel" id="panel">
+    <div class="panelhead">
+      <span class="badge" id="pbadge">1</span>
+      <div><h2 id="ptitle"></h2><span class="tag" id="ptag"></span></div>
+    </div>
+    <p class="blurb" id="pblurb"></p>
+    <div class="stepper">
+      <button type="button" id="pprev">&larr; Prev</button>
+      <span class="pos" id="ppos"></span>
+      <button type="button" id="pnext">Next &rarr;</button>
+    </div>
+    <div id="pbody"></div>
   </div>
 </div>
 <section class="caveat">
@@ -171,9 +201,11 @@ h1 { font-family:var(--serif); font-weight:400; font-size:clamp(2rem,5.5vw,3.6re
 </div>
 <script>
 (function(){
-  var D={"zones": {"approach": {"label": "Road & approach", "blurb": "Springs Fireplace Road runs along the west boundary and the driveway loops in to the motor court. The sunset side, and the only part of the property a visitor sees first. The two aerials here also show the revegetation buffer along the east line.", "album": [5], "now": [1, 2, 3, 4, 5], "conf": "surveyed", "conflabel": "On the survey"}, "garage": {"label": "The garage \u2014 now media room", "blurb": "A long range under a screened porch, standing separate with a brick breezeway under a lattice arch running to its neighbour. Media room, mud room and laundry today.", "album": [5, 6], "now": [15], "conf": "confirmed", "conflabel": "Confirmed by the owner"}, "entrance": {"label": "Front entrance & evening deck", "blurb": "The westernmost of the four buildings. The evening deck was built in front of and around it &mdash; named for what it is used for, since this is the side the sun sets on.", "album": [5], "now": [6, 7, 10], "conf": "confirmed", "conflabel": "Confirmed by the owner"}, "greatroom": {"label": "The great room", "blurb": "Its own building once, standing between the entrance and the barn. It carries the brick chimney built in the previous renovation, and the fireplace that chimney serves &mdash; bare brick in the album, whitewashed now &mdash; faces south toward the Pollock-Krasner house.", "album": [13, 14, 18, 21, 22], "now": [8, 9], "conf": "confirmed", "conflabel": "Confirmed by the owner"}, "barn": {"label": "Inside the barn", "blurb": "The oldest building and the easternmost, closest to the water. Already living space before either renovation: whitewashed plaster between hand-hewn beams, a boxed stair up to a loft. Kitchen and dining today. <b>The album dwells on this building because it is where most of the work was</b> &mdash; outside views of it are filed under the east side, where the camera was standing.", "album": [8, 9, 10, 11, 12, 15, 16, 17, 19, 24], "now": [11, 12, 13, 14], "conf": "inferred", "conflabel": "Position approximate"}, "house": {"label": "The two-storey block", "blurb": "The block the survey labels <i>2 Story Frame Dwelling</i>, and a separate building from the great room &mdash; <b>the primary bedroom is here, not above the great room.</b> The upper floor was framed in the previous renovation, and the roof going on in the album is the roof over that bedroom. Downstairs: the bunkroom and its bath. Upstairs: both bedrooms, the stair and the primary bath.", "album": [20], "now": [16, 17, 18, 19, 20, 21], "conf": "surveyed", "conflabel": "On the survey"}, "east": {"label": "The east side \u2014 terrace, pool, wetland", "blurb": "<i>Brick Patio</i> on the survey, and the ground the pool stood on. The pool sat against the barn&rsquo;s north side and wrapped this corner; bluestone covers it now, with the fire pit on top. <b>Every outside view of the barn is here</b>, because this is where the photographer stood. Past the terrace, the revegetation buffer runs down to Accabonac Harbor and the Merrill Lake Sanctuary.", "album": [1, 2, 3, 4, 7, 23], "now": [22, 23, 24, 25], "conf": "confirmed", "conflabel": "Confirmed by the owner"}}, "album": {"1": {"c": "\u2b50 The key frame. Camera looking south/south-west toward the Pollock-Krasner house \u2014 a neighbouring roofline stands in the background at the left. The barn is at centre with its red door; the pool in the foreground sat on its north side and is under the bluestone now; the building at the right became the great room.", "src": "../img/album/a01.jpg"}, "2": {"c": "The barn\u2019s red door and brick steps, close up", "src": "../img/album/a02.jpg"}, "3": {"c": "The barn from the east \u2014 camera standing out toward Accabonac Harbor, looking back west", "src": "../img/album/a03.jpg"}, "4": {"c": "The barn from the field, with the building that became the great room running off to the right", "src": "../img/album/a04.jpg"}, "5": {"c": "Looking east: the building at centre is the current front entrance; the range on the left was the garage, now the media room, mud room and laundry", "src": "../img/album/a05.jpg"}, "6": {"c": "The covered walk \u2014 a breezeway between two separate buildings, the garage range on the right", "src": "../img/album/a06.jpg"}, "7": {"c": "The barn boarded up, work starting", "src": "../img/album/a07.jpg"}, "8": {"c": "Inside the barn at ground level, a wall of three six-over-six windows", "src": "../img/album/a08.jpg"}, "9": {"c": "The barn loft \u2014 batten door and glazed door under the roof slope", "src": "../img/album/a09.jpg"}, "10": {"c": "Inside the barn: hand-hewn beams and the stair up to the loft", "src": "../img/album/a10.jpg"}, "11": {"c": "Inside the barn looking east toward Accabonac Harbor \u2014 the red door is at the left of frame", "src": "../img/album/a11.jpg"}, "12": {"c": "Inside the barn looking west toward what is now the evening deck. The camera stands where the kitchen is today; this wall and stair came out", "src": "../img/album/a12.jpg"}, "13": {"c": "The fireplace, before it was whitewashed \u2014 it faces south, toward the Pollock-Krasner house", "src": "../img/album/a13.jpg"}, "14": {"c": "The same fireplace framed out, lumber stacked", "src": "../img/album/a14.jpg"}, "15": {"c": "The carved cast-iron firebox, stored in the barn during the work", "src": "../img/album/a15.jpg"}, "16": {"c": "The barn loft \u2014 wide-plank floors, a cast-iron stove, and new ductwork threaded along the ceiling", "src": "../img/album/a16.jpg"}, "17": {"c": "Glazed doors and the barn\u2019s red door", "src": "../img/album/a17.jpg"}, "18": {"c": "Camera facing south toward the Pollock-Krasner house; the evening deck was later built off to the right", "src": "../img/album/a18.jpg"}, "19": {"c": "The barn loft stripped to the frame, new windows set, insulation stacked", "src": "../img/album/a19.jpg"}, "20": {"c": "New roof framing \u2014 the roof over what is now the primary bedroom. Rafters and collar ties, not the barn\u2019s trusses", "src": "../img/album/a20.jpg"}, "21": {"c": "Re-shingling the structure just west of the barn \u2014 the great room \u2014 new cedar going over weathered grey", "src": "../img/album/a21.jpg"}, "22": {"c": "The new brick chimney, outside. The fireplace it serves is the whitewashed one in the great room", "src": "../img/album/a22.jpg"}, "23": {"c": "The east elevation finished, camera looking west", "src": "../img/album/a23.jpg"}, "24": {"c": "The barn\u2019s vaulted ceiling, dark-stained and without tie rods \u2014 the kitchen ceiling today", "src": "../img/album/a24.jpg"}}, "now": {"1": {"c": "Aerial over the property", "src": "../img/01-800.jpg"}, "2": {"c": "Roof plan from overhead", "src": "../img/02-800.jpg"}, "3": {"c": "The front, from the motor court", "src": "../img/03-800.jpg"}, "4": {"c": "The front, three-quarter view", "src": "../img/04-800.jpg"}, "5": {"c": "The tall window in the gable end", "src": "../img/05-800.jpg"}, "6": {"c": "The entry", "src": "../img/06-800.jpg"}, "7": {"c": "The evening deck", "src": "../img/07-800.jpg"}, "8": {"c": "The great room, end to end", "src": "../img/08-800.jpg"}, "9": {"c": "Living room, looking west", "src": "../img/09-800.jpg"}, "10": {"c": "Sliders open to the deck", "src": "../img/10-800.jpg"}, "11": {"c": "Dining against the window wall", "src": "../img/11-800.jpg"}, "12": {"c": "Dining, seen past the island", "src": "../img/12-800.jpg"}, "13": {"c": "The original barn \u2014 now the kitchen", "src": "../img/13-800.jpg"}, "14": {"c": "The barn kitchen, from the dining side", "src": "../img/14-800.jpg"}, "15": {"c": "The media room", "src": "../img/15-800.jpg"}, "16": {"c": "Downstairs landing, bunkroom beyond", "src": "../img/16-800.jpg"}, "17": {"c": "The bunkroom bath", "src": "../img/17-800.jpg"}, "18": {"c": "The stair to the second floor", "src": "../img/18-800.jpg"}, "19": {"c": "The primary bedroom", "src": "../img/19-800.jpg"}, "20": {"c": "The guest bedroom", "src": "../img/20-800.jpg"}, "21": {"c": "The primary bath", "src": "../img/21-800.jpg"}, "22": {"c": "The east elevation and the sunroom wing", "src": "../img/22-800.jpg"}, "23": {"c": "The terrace in use", "src": "../img/23-800.jpg"}, "24": {"c": "The east elevation from the lawn", "src": "../img/24-800.jpg"}, "25": {"c": "The barn from the north", "src": "../img/25-800.jpg"}}};
-  var panel=document.getElementById("panel");
-  var order=Object.keys(D.zones);
+  var D={"order": ["approach", "garage", "entrance", "greatroom", "barn", "house", "east"], "zones": {"approach": {"label": "Road & approach", "blurb": "Springs Fireplace Road runs along the west boundary and the driveway loops in to the motor court. The sunset side, and the only part of the property a visitor sees first. The two aerials here also show the revegetation buffer along the east line.", "album": [5], "now": [1, 2, 3, 4, 5], "conf": "surveyed", "conflabel": "On the survey", "n": 1}, "garage": {"label": "The garage \u2014 now media room", "blurb": "A long range under a screened porch, standing separate with a brick breezeway under a lattice arch running to its neighbour. Media room, mud room and laundry today.", "album": [5, 6], "now": [15], "conf": "confirmed", "conflabel": "Confirmed by the owner", "n": 2}, "entrance": {"label": "Front entrance & evening deck", "blurb": "The westernmost of the four buildings. The evening deck was built in front of and around it &mdash; named for what it is used for, since this is the side the sun sets on.", "album": [5], "now": [6, 7, 10], "conf": "confirmed", "conflabel": "Confirmed by the owner", "n": 3}, "greatroom": {"label": "The great room", "blurb": "Its own building once, standing between the entrance and the barn. It carries the brick chimney built in the previous renovation, and the fireplace that chimney serves &mdash; bare brick in the album, whitewashed now &mdash; faces south toward the Pollock-Krasner house.", "album": [13, 14, 18, 21, 22], "now": [8, 9], "conf": "confirmed", "conflabel": "Confirmed by the owner", "n": 4}, "barn": {"label": "Inside the barn", "blurb": "The oldest building and the easternmost, closest to the water. Already living space before either renovation: whitewashed plaster between hand-hewn beams, a boxed stair up to a loft. Kitchen and dining today. <b>The album dwells on this building because it is where most of the work was</b> &mdash; outside views of it are filed under the east side, where the camera was standing.", "album": [8, 9, 10, 11, 12, 15, 16, 17, 19, 24], "now": [11, 12, 13, 14], "conf": "inferred", "conflabel": "Position approximate", "n": 5}, "house": {"label": "The two-storey block", "blurb": "The block the survey labels <i>2 Story Frame Dwelling</i>, and a separate building from the great room &mdash; <b>the primary bedroom is here, not above the great room.</b> The upper floor was framed in the previous renovation, and the roof going on in the album is the roof over that bedroom. Downstairs: the bunkroom and its bath. Upstairs: both bedrooms, the stair and the primary bath.", "album": [20], "now": [16, 17, 18, 19, 20, 21], "conf": "surveyed", "conflabel": "On the survey", "n": 6}, "east": {"label": "The east side \u2014 terrace, pool, wetland", "blurb": "<i>Brick Patio</i> on the survey, and the ground the pool stood on. The pool sat against the barn&rsquo;s north side and wrapped this corner; bluestone covers it now, with the fire pit on top. <b>Every outside view of the barn is here</b>, because this is where the photographer stood. Past the terrace, the revegetation buffer runs down to Accabonac Harbor and the Merrill Lake Sanctuary.", "album": [1, 2, 3, 4, 7, 23], "now": [22, 23, 24, 25], "conf": "confirmed", "conflabel": "Confirmed by the owner", "n": 7}}, "album": {"1": {"c": "\u2b50 The key frame. Camera looking south/south-west toward the Pollock-Krasner house \u2014 a neighbouring roofline stands in the background at the left. The barn is at centre with its red door; the pool in the foreground sat on its north side and is under the bluestone now; the building at the right became the great room.", "src": "../img/album/a01.jpg"}, "2": {"c": "The barn\u2019s red door and brick steps, close up", "src": "../img/album/a02.jpg"}, "3": {"c": "The barn from the east \u2014 camera standing out toward Accabonac Harbor, looking back west", "src": "../img/album/a03.jpg"}, "4": {"c": "The barn from the field, with the building that became the great room running off to the right", "src": "../img/album/a04.jpg"}, "5": {"c": "Looking east: the building at centre is the current front entrance; the range on the left was the garage, now the media room, mud room and laundry", "src": "../img/album/a05.jpg"}, "6": {"c": "The covered walk \u2014 a breezeway between two separate buildings, the garage range on the right", "src": "../img/album/a06.jpg"}, "7": {"c": "The barn boarded up, work starting", "src": "../img/album/a07.jpg"}, "8": {"c": "Inside the barn at ground level, a wall of three six-over-six windows", "src": "../img/album/a08.jpg"}, "9": {"c": "The barn loft \u2014 batten door and glazed door under the roof slope", "src": "../img/album/a09.jpg"}, "10": {"c": "Inside the barn: hand-hewn beams and the stair up to the loft", "src": "../img/album/a10.jpg"}, "11": {"c": "Inside the barn looking east toward Accabonac Harbor \u2014 the red door is at the left of frame", "src": "../img/album/a11.jpg"}, "12": {"c": "Inside the barn looking west toward what is now the evening deck. The camera stands where the kitchen is today; this wall and stair came out", "src": "../img/album/a12.jpg"}, "13": {"c": "The fireplace, before it was whitewashed \u2014 it faces south, toward the Pollock-Krasner house", "src": "../img/album/a13.jpg"}, "14": {"c": "The same fireplace framed out, lumber stacked", "src": "../img/album/a14.jpg"}, "15": {"c": "The carved cast-iron firebox, stored in the barn during the work", "src": "../img/album/a15.jpg"}, "16": {"c": "The barn loft \u2014 wide-plank floors, a cast-iron stove, and new ductwork threaded along the ceiling", "src": "../img/album/a16.jpg"}, "17": {"c": "Glazed doors and the barn\u2019s red door", "src": "../img/album/a17.jpg"}, "18": {"c": "Camera facing south toward the Pollock-Krasner house; the evening deck was later built off to the right", "src": "../img/album/a18.jpg"}, "19": {"c": "The barn loft stripped to the frame, new windows set, insulation stacked", "src": "../img/album/a19.jpg"}, "20": {"c": "New roof framing \u2014 the roof over what is now the primary bedroom. Rafters and collar ties, not the barn\u2019s trusses", "src": "../img/album/a20.jpg"}, "21": {"c": "Re-shingling the structure just west of the barn \u2014 the great room \u2014 new cedar going over weathered grey", "src": "../img/album/a21.jpg"}, "22": {"c": "The new brick chimney, outside. The fireplace it serves is the whitewashed one in the great room", "src": "../img/album/a22.jpg"}, "23": {"c": "The east elevation finished, camera looking west", "src": "../img/album/a23.jpg"}, "24": {"c": "The barn\u2019s vaulted ceiling, dark-stained and without tie rods \u2014 the kitchen ceiling today", "src": "../img/album/a24.jpg"}}, "now": {"1": {"c": "Aerial over the property", "src": "../img/01-800.jpg"}, "2": {"c": "Roof plan from overhead", "src": "../img/02-800.jpg"}, "3": {"c": "The front, from the motor court", "src": "../img/03-800.jpg"}, "4": {"c": "The front, three-quarter view", "src": "../img/04-800.jpg"}, "5": {"c": "The tall window in the gable end", "src": "../img/05-800.jpg"}, "6": {"c": "The entry", "src": "../img/06-800.jpg"}, "7": {"c": "The evening deck", "src": "../img/07-800.jpg"}, "8": {"c": "The great room, end to end", "src": "../img/08-800.jpg"}, "9": {"c": "Living room, looking west", "src": "../img/09-800.jpg"}, "10": {"c": "Sliders open to the deck", "src": "../img/10-800.jpg"}, "11": {"c": "Dining against the window wall", "src": "../img/11-800.jpg"}, "12": {"c": "Dining, seen past the island", "src": "../img/12-800.jpg"}, "13": {"c": "The original barn \u2014 now the kitchen", "src": "../img/13-800.jpg"}, "14": {"c": "The barn kitchen, from the dining side", "src": "../img/14-800.jpg"}, "15": {"c": "The media room", "src": "../img/15-800.jpg"}, "16": {"c": "Downstairs landing, bunkroom beyond", "src": "../img/16-800.jpg"}, "17": {"c": "The bunkroom bath", "src": "../img/17-800.jpg"}, "18": {"c": "The stair to the second floor", "src": "../img/18-800.jpg"}, "19": {"c": "The primary bedroom", "src": "../img/19-800.jpg"}, "20": {"c": "The guest bedroom", "src": "../img/20-800.jpg"}, "21": {"c": "The primary bath", "src": "../img/21-800.jpg"}, "22": {"c": "The east elevation and the sunroom wing", "src": "../img/22-800.jpg"}, "23": {"c": "The terrace in use", "src": "../img/23-800.jpg"}, "24": {"c": "The east elevation from the lawn", "src": "../img/24-800.jpg"}, "25": {"c": "The barn from the north", "src": "../img/25-800.jpg"}}}, ORDER=D.order, at=0;
+  var panel=document.getElementById("panel"), body=document.getElementById("pbody");
+  var badge=document.getElementById("pbadge"), title=document.getElementById("ptitle");
+  var tag=document.getElementById("ptag"), blurb=document.getElementById("pblurb");
+  var pos=document.getElementById("ppos");
   function thumbs(ids,pool){
     if(!ids.length) return '<p class="empty">Nothing from this period shows this part of the property.</p>';
     return '<div class="thumbs">'+ids.map(function(i){
@@ -182,19 +214,29 @@ h1 { font-family:var(--serif); font-weight:400; font-size:clamp(2rem,5.5vw,3.6re
            + '<figcaption>'+m.c+'</figcaption></figure>';
     }).join("")+'</div>';
   }
-  function show(k){
-    var z=D.zones[k];
-    panel.innerHTML='<h2>'+z.label+'</h2>'
-      +'<span class="tag '+z.conf+'">'+z.conflabel+'</span>'
-      +'<p class="blurb">'+z.blurb+'</p>'
-      +'<p class="grouphead">Before this renovation</p>'+thumbs(z.album,D.album)
-      +'<p class="grouphead">Today</p>'+thumbs(z.now,D.now);
-    document.querySelectorAll(".pin, .legrow").forEach(function(el){
+  function show(k, scroll){
+    var z=D.zones[k]; at=ORDER.indexOf(k);
+    badge.textContent=z.n; badge.className="badge "+z.conf;
+    panel.className="panel "+z.conf;
+    title.textContent=z.label;
+    tag.textContent=z.conflabel; tag.className="tag "+z.conf;
+    blurb.innerHTML=z.blurb;
+    pos.textContent="Marker "+z.n+" of "+ORDER.length;
+    body.innerHTML='<p class="grouphead">Before this renovation</p>'+thumbs(z.album,D.album)
+                  +'<p class="grouphead">Today</p>'+thumbs(z.now,D.now);
+    body.style.animation="none"; void body.offsetWidth; body.style.animation="";
+    document.querySelectorAll(".pin").forEach(function(el){
       el.setAttribute("aria-current", el.dataset.z===k ? "true" : "false"); });
+    if(scroll && window.matchMedia("(max-width:999px)").matches){
+      panel.scrollIntoView({behavior:"smooth", block:"start"}); }
   }
-  document.querySelectorAll(".pin, .legrow").forEach(function(el){
-    el.addEventListener("click",function(){ show(el.dataset.z); }); });
-  show(order[0]);
+  document.querySelectorAll(".pin").forEach(function(el){
+    el.addEventListener("click",function(){ show(el.dataset.z, true); }); });
+  document.getElementById("pprev").addEventListener("click",function(){
+    show(ORDER[(at-1+ORDER.length)%ORDER.length], false); });
+  document.getElementById("pnext").addEventListener("click",function(){
+    show(ORDER[(at+1)%ORDER.length], false); });
+  show(ORDER[0], false);
   var lb=document.getElementById("lb"), im=document.getElementById("lbimg"), cap=document.getElementById("lbcap");
   document.addEventListener("click",function(e){
     var t=e.target;

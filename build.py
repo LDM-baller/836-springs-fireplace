@@ -399,41 +399,58 @@ h1 { font-family:var(--serif); font-weight:400; font-size:clamp(2rem,5.5vw,3.6re
 .rule { margin:1.1rem 0 0; max-width:64ch; font-size:.84rem; color:var(--muted);
   border-left:2px solid var(--accent); padding-left:.9rem; }
 .rule b { color:var(--ink); font-weight:500; }
-.layout { display:grid; gap:1.8rem; }
-@media (min-width:1000px) { .layout { grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
+.layout { display:grid; gap:1.5rem; }
+@media (min-width:1000px) { .layout { grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);
   gap:2.5rem; align-items:start; } }
+.mapwrap { position:sticky; top:1rem; }
+@media (max-width:999px) { .mapwrap { position:static; } }
+.prompt { display:flex; gap:.55rem; align-items:center; margin:0 0 .7rem; font-family:var(--mono);
+  font-size:.64rem; letter-spacing:.11em; text-transform:uppercase; color:var(--accent); }
+.prompt .dot { width:1.35rem; height:1.35rem; border-radius:50%; background:var(--accent); color:#fff;
+  display:grid; place-items:center; font-size:.6rem; border:2px solid #fff;
+  box-shadow:0 1px 4px rgba(0,0,0,.3); flex:0 0 auto; }
 .mapbox { position:relative; background:var(--paper); border:1px solid var(--rule); box-shadow:var(--shadow); }
 .mapbox > img { width:100%; }
 .pin { position:absolute; transform:translate(-50%,-50%); width:2.1rem; height:2.1rem; min-width:34px;
   min-height:34px; border-radius:50%; border:2px solid #fff; background:var(--accent); color:#fff;
   font-family:var(--mono); font-size:.78rem; font-weight:500; cursor:pointer; padding:0;
-  box-shadow:0 2px 8px rgba(0,0,0,.35); transition:transform .18s ease; }
+  box-shadow:0 2px 8px rgba(0,0,0,.35); transition:transform .18s ease, box-shadow .18s ease; }
 .pin span { pointer-events:none; }
 .pin.inferred { background:var(--warn); border-style:dashed; }
 .pin.confirmed { background:var(--ok); }
-.pin:hover,.pin[aria-current="true"] { transform:translate(-50%,-50%) scale(1.22); }
-.pin[aria-current="true"] { box-shadow:0 0 0 5px rgba(29,60,97,.28),0 2px 8px rgba(0,0,0,.35); }
+.pin:hover { transform:translate(-50%,-50%) scale(1.18); }
+.pin[aria-current="true"] { transform:translate(-50%,-50%) scale(1.35);
+  box-shadow:0 0 0 6px rgba(29,60,97,.25),0 2px 10px rgba(0,0,0,.4); z-index:5; }
 .north { position:absolute; right:2.5%; top:3%; font-family:var(--mono); font-size:.62rem;
   letter-spacing:.14em; color:#333; text-align:center; }
 .north b { display:block; font-size:1.05rem; line-height:1; }
 .mapnote { margin:.8rem 0 0; font-size:.76rem; color:var(--muted); }
-.legend { list-style:none; margin:0 0 1.5rem; padding:0; border-top:1px solid var(--rule); }
-.legrow { display:flex; gap:.85rem; align-items:baseline; width:100%; text-align:left; padding:.7rem 0;
-  background:none; border:0; border-bottom:1px solid var(--rule); cursor:pointer; color:inherit;
-  font-family:inherit; font-size:.9rem; }
-.legrow:hover .lname { color:var(--accent); }
-.legrow[aria-current="true"] .lname { color:var(--accent); font-weight:500; }
-.num { font-family:var(--mono); font-size:.72rem; color:var(--accent); flex:0 0 1.2rem; }
-.lname { flex:1; }
-.cnt { font-family:var(--mono); font-size:.62rem; color:var(--muted); white-space:nowrap; }
-.panel { background:var(--surface); border:1px solid var(--rule); padding:clamp(1.1rem,2.5vw,1.8rem); }
-.panel h2 { font-family:var(--serif); font-weight:400; font-size:1.5rem; margin:0 0 .5rem; }
+.panel { background:var(--surface); border:1px solid var(--rule); border-top:3px solid var(--accent);
+  padding:clamp(1.1rem,2.5vw,1.8rem); scroll-margin-top:1rem; }
+.panel.confirmed { border-top-color:var(--ok); }
+.panel.inferred { border-top-color:var(--warn); }
+.panelhead { display:flex; gap:.9rem; align-items:flex-start; margin-bottom:.5rem; }
+.badge { flex:0 0 auto; width:2.1rem; height:2.1rem; border-radius:50%; display:grid; place-items:center;
+  background:var(--accent); color:#fff; font-family:var(--mono); font-size:.78rem; font-weight:500;
+  border:2px solid #fff; box-shadow:0 2px 8px rgba(0,0,0,.3); }
+.badge.confirmed { background:var(--ok); }
+.badge.inferred { background:var(--warn); border-style:dashed; }
+.panelhead h2 { font-family:var(--serif); font-weight:400; font-size:1.45rem; margin:.05rem 0 .3rem;
+  line-height:1.2; }
 .tag { display:inline-block; font-family:var(--mono); font-size:.56rem; letter-spacing:.13em;
-  text-transform:uppercase; padding:.16rem .45rem; border:1px solid var(--rule); margin-bottom:.7rem; }
+  text-transform:uppercase; padding:.16rem .45rem; border:1px solid var(--rule); }
 .tag.surveyed { color:var(--accent); }
 .tag.inferred { color:var(--warn); border-color:var(--warn); }
 .tag.confirmed { color:var(--ok); border-color:var(--ok); }
-.panel .blurb { margin:0 0 1.3rem; font-size:.88rem; color:var(--muted); }
+.blurb { margin:1rem 0 1.3rem; font-size:.88rem; color:var(--muted); }
+.stepper { display:flex; align-items:center; gap:.7rem; margin-bottom:1.2rem; padding-bottom:1rem;
+  border-bottom:1px solid var(--rule); }
+.stepper button { flex:0 0 auto; min-width:44px; min-height:38px; padding:.4rem .8rem;
+  font-family:var(--mono); font-size:.62rem; letter-spacing:.08em; text-transform:uppercase;
+  background:none; color:var(--muted); border:1px solid var(--rule); cursor:pointer; }
+.stepper button:hover { color:var(--ink); border-color:var(--accent); }
+.stepper .pos { flex:1; text-align:center; font-family:var(--mono); font-size:.62rem;
+  letter-spacing:.11em; text-transform:uppercase; color:var(--muted); }
 .grouphead { font-family:var(--mono); font-size:.6rem; letter-spacing:.16em; text-transform:uppercase;
   color:var(--accent); margin:1.3rem 0 .7rem; padding-bottom:.35rem; border-bottom:1px solid var(--rule); }
 .grouphead:first-of-type { margin-top:0; }
@@ -442,6 +459,8 @@ h1 { font-family:var(--serif); font-weight:400; font-size:clamp(2rem,5.5vw,3.6re
 .thumbs img { width:100%; box-shadow:var(--shadow); cursor:zoom-in; }
 .thumbs figcaption { margin-top:.35rem; font-size:.72rem; color:var(--muted); line-height:1.4; }
 .empty { font-size:.82rem; color:var(--muted); font-style:italic; }
+#pbody { animation:swap .32s ease both; }
+@keyframes swap { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
 .caveat { margin-top:clamp(2rem,5vw,3.5rem); padding:clamp(1.2rem,3vw,2rem); background:var(--surface);
   border:1px solid var(--rule); border-left:3px solid var(--warn); }
 .caveat h2 { font-family:var(--mono); font-size:.64rem; letter-spacing:.18em; text-transform:uppercase;
@@ -459,6 +478,7 @@ h1 { font-family:var(--serif); font-weight:400; font-size:clamp(2rem,5.5vw,3.6re
   width:2.75rem; height:2.75rem; min-width:44px; min-height:44px;
   border:1px solid rgba(244,246,248,.3); background:rgba(8,12,16,.6); color:#F4F6F8;
   font-size:1.1rem; cursor:pointer; }
+@media (prefers-reduced-motion:reduce) { #pbody { animation:none; } .pin { transition:none; } }
 """
 
 CONF = {
@@ -470,93 +490,109 @@ CONF = {
 def build_map():
     pins = "".join(
       f'<button class="pin {CONF[cf][0]}" style="left:{x}%;top:{y}%" data-z="{k}" '
-      f'aria-label="{l.replace("&amp;","and")}"><span>{i+1}</span></button>'
-      for i,(k,l,x,y,b,al,nw,cf) in enumerate(ZONES))
-    legend = "".join(
-      f'<li><button class="legrow" data-z="{k}"><span class="num">{i+1}</span>'
-      f'<span class="lname">{l}</span>'
-      f'<span class="cnt">{len(al)} then &middot; {len(nw)} now</span></button></li>'
+      f'aria-label="Marker {i+1}: {l.replace("&amp;","and")}"><span>{i+1}</span></button>'
       for i,(k,l,x,y,b,al,nw,cf) in enumerate(ZONES))
     data = json.dumps({
+      "order": [z[0] for z in ZONES],
       "zones": {k:{"label":l.replace("&amp;","&"),"blurb":b,"album":al,"now":nw,
-                   "conf":CONF[cf][0],"conflabel":CONF[cf][1]}
-                for k,l,x,y,b,al,nw,cf in ZONES},
+                   "conf":CONF[cf][0],"conflabel":CONF[cf][1],"n":i+1}
+                for i,(k,l,x,y,b,al,nw,cf) in enumerate(ZONES)},
       "album": {str(k):{"c":v,"src":"../img/album/a%02d.jpg"%k} for k,v in ALBUM.items()},
       "now":   {str(n):{"c":PLATES[n][0],"src":"../"+D[n]["s"]} for n in PLATES},
     })
-    body = f'''<div class="wrap">
-<header class="top">
-  <p class="eyebrow">Gary Benz survey &middot; Grimes plan, 18 November 2021</p>
-  <h1>Where each photograph was taken</h1>
-  <p class="lede">The surveyed site plan, with the album photographs from the renovation before this one set against the finished house. Pick a marker.</p>
-  <p class="rule"><b>How things are filed:</b> an <b>interior</b> sits under the building it is inside; an <b>exterior</b> sits under the ground the camera was standing on. So every outside view of the barn is under the east terrace rather than under the barn. A few photographs show more than one thing and appear in more than one place.</p>
-</header>
-<div class="layout">
-  <div>
-    <div class="mapbox">
-      <img src="../img/plan.jpg" alt="Site plan of 836 Springs Fireplace Road showing the lot, driveway, building footprint and wetland buffer">
-      <div class="north"><b>&#8593;</b>N</div>
-      {pins}
-    </div>
-    <p class="mapnote">Lot 130&prime; &times; 220&prime;. Road and motor court west, wetlands east. Solid markers sit on something the survey actually labels; <b>dashed markers are a reading of the photographs, not surveyed positions.</b></p>
-  </div>
-  <div>
-    <ul class="legend">{legend}</ul>
-    <div class="panel" id="panel"></div>
-  </div>
-</div>
-<section class="caveat">
-  <h2>How to read this map</h2>
-  <p><b>The property was four separate buildings, running roughly west to east:</b> the volume that is now the front entrance, the garage range beside it, the building that became the great room, and furthest east &mdash; closest to the water &mdash; the barn. The previous renovation pulled them into the single footprint the survey draws.</p>
-  <p><b>The survey never subdivides that footprint.</b> It labels <i>2 Story Frame Dwelling</i>, <i>Porch</i>, <i>Brick Patio</i> and <i>Wood Steps</i>, and nothing else. So the markers for the entrance, the great room and the barn are placed along the west-to-east order the photographs establish, not on lines anyone surveyed. The order is solid; the exact positions are not.</p>
-  <p><b>The plan is dated during this renovation, not before it.</b> Everything marked <i>Proposed</i> &mdash; the deck, the driveway, the septic &mdash; is the current work; everything marked <i>Existing</i> is what the previous renovation left behind.</p>
-</section>
-</div>
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged photograph">
-  <div class="frame"><img id="lbimg" alt=""></div>
-  <p class="cap" id="lbcap"></p>
-  <button id="lbclose" aria-label="Close">&#10005;</button>
-</div>'''
-    script = f'''<script>
-(function(){{
-  var D={data};
-  var panel=document.getElementById("panel");
-  var order=Object.keys(D.zones);
-  function thumbs(ids,pool){{
-    if(!ids.length) return '<p class="empty">Nothing from this period shows this part of the property.</p>';
-    return '<div class="thumbs">'+ids.map(function(i){{
-      var m=pool[String(i)]; if(!m) return "";
-      return '<figure><img src="'+m.src+'" alt="'+m.c+'" data-cap="'+m.c+'" loading="lazy">'
-           + '<figcaption>'+m.c+'</figcaption></figure>';
-    }}).join("")+'</div>';
-  }}
-  function show(k){{
-    var z=D.zones[k];
-    panel.innerHTML='<h2>'+z.label+'</h2>'
-      +'<span class="tag '+z.conf+'">'+z.conflabel+'</span>'
-      +'<p class="blurb">'+z.blurb+'</p>'
-      +'<p class="grouphead">Before this renovation</p>'+thumbs(z.album,D.album)
-      +'<p class="grouphead">Today</p>'+thumbs(z.now,D.now);
-    document.querySelectorAll(".pin, .legrow").forEach(function(el){{
-      el.setAttribute("aria-current", el.dataset.z===k ? "true" : "false"); }});
-  }}
-  document.querySelectorAll(".pin, .legrow").forEach(function(el){{
-    el.addEventListener("click",function(){{ show(el.dataset.z); }}); }});
-  show(order[0]);
-  var lb=document.getElementById("lb"), im=document.getElementById("lbimg"), cap=document.getElementById("lbcap");
-  document.addEventListener("click",function(e){{
-    var t=e.target;
-    if(t.tagName==="IMG"&&t.closest(".thumbs")){{
-      im.src=t.src; im.alt=t.alt; cap.textContent=t.dataset.cap;
-      lb.classList.add("on"); document.body.style.overflow="hidden";
-      document.getElementById("lbclose").focus(); }}
-  }});
-  function close(){{ lb.classList.remove("on"); im.src=""; document.body.style.overflow=""; }}
-  document.getElementById("lbclose").addEventListener("click",close);
-  lb.addEventListener("click",function(e){{ if(e.target===lb||e.target.className==="frame") close(); }});
-  document.addEventListener("keydown",function(e){{ if(e.key==="Escape"&&lb.classList.contains("on")) close(); }});
-}})();
-</script>'''
+    body = ('<div class="wrap">\n'
+'<header class="top">\n'
+'  <p class="eyebrow">Gary Benz survey &middot; Grimes plan, 18 November 2021</p>\n'
+'  <h1>Where each photograph was taken</h1>\n'
+'  <p class="lede">The surveyed site plan, with the album photographs from the renovation before this one set against the finished house.</p>\n'
+'  <p class="rule"><b>How things are filed:</b> an <b>interior</b> sits under the building it is inside; an <b>exterior</b> sits under the ground the camera was standing on. So every outside view of the barn is under the east side rather than under the barn. A few photographs show more than one thing and appear in more than one place.</p>\n'
+'</header>\n'
+'<div class="layout">\n'
+'  <div class="mapwrap">\n'
+'    <p class="prompt"><span class="dot">1</span> Tap a marker &mdash; the photographs below change</p>\n'
+'    <div class="mapbox">\n'
+'      <img src="../img/plan.jpg" alt="Site plan of 836 Springs Fireplace Road showing the lot, driveway, building footprint and wetland buffer">\n'
+'      <div class="north"><b>&#8593;</b>N</div>\n'
+'      ' + pins + '\n'
+'    </div>\n'
+'    <p class="mapnote">Lot 130&prime; &times; 220&prime;. Road and motor court west, wetlands east. Solid markers sit on something the survey labels or the owner confirmed; <b>a dashed marker is placed by eye.</b></p>\n'
+'  </div>\n'
+'  <div class="panel" id="panel">\n'
+'    <div class="panelhead">\n'
+'      <span class="badge" id="pbadge">1</span>\n'
+'      <div><h2 id="ptitle"></h2><span class="tag" id="ptag"></span></div>\n'
+'    </div>\n'
+'    <p class="blurb" id="pblurb"></p>\n'
+'    <div class="stepper">\n'
+'      <button type="button" id="pprev">&larr; Prev</button>\n'
+'      <span class="pos" id="ppos"></span>\n'
+'      <button type="button" id="pnext">Next &rarr;</button>\n'
+'    </div>\n'
+'    <div id="pbody"></div>\n'
+'  </div>\n'
+'</div>\n'
+'<section class="caveat">\n'
+'  <h2>How to read this map</h2>\n'
+'  <p><b>The property was four separate buildings, running roughly west to east:</b> the volume that is now the front entrance, the garage range beside it, the building that became the great room, and furthest east &mdash; closest to the water &mdash; the barn. The previous renovation pulled them into the single footprint the survey draws.</p>\n'
+'  <p><b>The survey never subdivides that footprint.</b> It labels <i>2 Story Frame Dwelling</i>, <i>Porch</i>, <i>Brick Patio</i> and <i>Wood Steps</i>, and nothing else. So the markers for the entrance, the great room and the barn are placed along the west-to-east order the photographs establish, not on lines anyone surveyed. The order is solid; the exact positions are not.</p>\n'
+'  <p><b>The plan is dated during this renovation, not before it.</b> Everything marked <i>Proposed</i> &mdash; the deck, the driveway, the septic &mdash; is the current work; everything marked <i>Existing</i> is what the previous renovation left behind.</p>\n'
+'</section>\n'
+'</div>\n'
+'<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged photograph">\n'
+'  <div class="frame"><img id="lbimg" alt=""></div>\n'
+'  <p class="cap" id="lbcap"></p>\n'
+'  <button id="lbclose" aria-label="Close">&#10005;</button>\n'
+'</div>')
+    script = ('<script>\n(function(){\n'
+'  var D=' + data + ', ORDER=D.order, at=0;\n'
+'  var panel=document.getElementById("panel"), body=document.getElementById("pbody");\n'
+'  var badge=document.getElementById("pbadge"), title=document.getElementById("ptitle");\n'
+'  var tag=document.getElementById("ptag"), blurb=document.getElementById("pblurb");\n'
+'  var pos=document.getElementById("ppos");\n'
+'  function thumbs(ids,pool){\n'
+'    if(!ids.length) return \'<p class="empty">Nothing from this period shows this part of the property.</p>\';\n'
+'    return \'<div class="thumbs">\'+ids.map(function(i){\n'
+'      var m=pool[String(i)]; if(!m) return "";\n'
+'      return \'<figure><img src="\'+m.src+\'" alt="\'+m.c+\'" data-cap="\'+m.c+\'" loading="lazy">\'\n'
+'           + \'<figcaption>\'+m.c+\'</figcaption></figure>\';\n'
+'    }).join("")+\'</div>\';\n'
+'  }\n'
+'  function show(k, scroll){\n'
+'    var z=D.zones[k]; at=ORDER.indexOf(k);\n'
+'    badge.textContent=z.n; badge.className="badge "+z.conf;\n'
+'    panel.className="panel "+z.conf;\n'
+'    title.textContent=z.label;\n'
+'    tag.textContent=z.conflabel; tag.className="tag "+z.conf;\n'
+'    blurb.innerHTML=z.blurb;\n'
+'    pos.textContent="Marker "+z.n+" of "+ORDER.length;\n'
+'    body.innerHTML=\'<p class="grouphead">Before this renovation</p>\'+thumbs(z.album,D.album)\n'
+'                  +\'<p class="grouphead">Today</p>\'+thumbs(z.now,D.now);\n'
+'    body.style.animation="none"; void body.offsetWidth; body.style.animation="";\n'
+'    document.querySelectorAll(".pin").forEach(function(el){\n'
+'      el.setAttribute("aria-current", el.dataset.z===k ? "true" : "false"); });\n'
+'    if(scroll && window.matchMedia("(max-width:999px)").matches){\n'
+'      panel.scrollIntoView({behavior:"smooth", block:"start"}); }\n'
+'  }\n'
+'  document.querySelectorAll(".pin").forEach(function(el){\n'
+'    el.addEventListener("click",function(){ show(el.dataset.z, true); }); });\n'
+'  document.getElementById("pprev").addEventListener("click",function(){\n'
+'    show(ORDER[(at-1+ORDER.length)%ORDER.length], false); });\n'
+'  document.getElementById("pnext").addEventListener("click",function(){\n'
+'    show(ORDER[(at+1)%ORDER.length], false); });\n'
+'  show(ORDER[0], false);\n'
+'  var lb=document.getElementById("lb"), im=document.getElementById("lbimg"), cap=document.getElementById("lbcap");\n'
+'  document.addEventListener("click",function(e){\n'
+'    var t=e.target;\n'
+'    if(t.tagName==="IMG"&&t.closest(".thumbs")){\n'
+'      im.src=t.src; im.alt=t.alt; cap.textContent=t.dataset.cap;\n'
+'      lb.classList.add("on"); document.body.style.overflow="hidden";\n'
+'      document.getElementById("lbclose").focus(); }\n'
+'  });\n'
+'  function close(){ lb.classList.remove("on"); im.src=""; document.body.style.overflow=""; }\n'
+'  document.getElementById("lbclose").addEventListener("click",close);\n'
+'  lb.addEventListener("click",function(e){ if(e.target===lb||e.target.className==="frame") close(); });\n'
+'  document.addEventListener("keydown",function(e){ if(e.key==="Escape"&&lb.classList.contains("on")) close(); });\n'
+'})();\n</script>')
     return shell("836 Site Map, Then and Now",
                  "The surveyed site plan of 836 with clickable zones pairing the previous renovation against the finished house.",
                  1, "map/", body, MAP_CSS, script)
