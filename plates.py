@@ -27,10 +27,11 @@ PLATES = {
  8:("The great room, end to end",
     "Pale oak floors · rope-wrapped ring chandelier · whitewashed brick fireplace · pale blue walls."),
  9:("Living room, looking west",
-    "The view out is the evening deck and the western sky. Cream sectional, leather sling "
-    "chairs, oak coffee table, whitewashed brick fireplace."),
- 10:("Sliders open to the deck",
-    "The indoor–outdoor move: the slider pockets away and the oak floor reads straight through."),
+    "Sliders closed, onto the lawn and the Adirondack chairs. Whitewashed brick fireplace "
+    "at the left edge, leather sling chairs and the chess table in front."),
+ 10:("The same room, turned the other way",
+    "The slider pocketed fully open onto the covered terrace — the shingled wall opposite is "
+    "the next building along. The indoor–outdoor move, and the reason this room reads as two."),
  11:("Dining against the window wall",
     "Steel windows and French doors · oak table · linear multi-shade chandelier."),
  12:("Dining, seen past the island",
@@ -230,12 +231,12 @@ ZONES = [
  ("entrance","Front entrance &amp; evening deck",63.0,56.0,
   "The westernmost of the four buildings, with the garage range beside it. The evening deck was built "
   "in front of and around it &mdash; named for what it is used for, since this is the side the sun sets on.",
-  [5], [6,7,10], "confirmed by Lindsay"),
+  [5], [6,7], "confirmed by Lindsay"),
  ("greatroom","The great room",72.0,52.0,
   "Its own building once, standing between the entrance and the barn. It carries the brick chimney "
   "built in the previous renovation, and the fireplace that chimney serves &mdash; bare brick in the "
   "album, whitewashed now &mdash; faces south toward the Pollock-Krasner house.",
-  [13,14,18,21,22], [8,9], "confirmed by Lindsay"),
+  [13,14,18,21,22], [8,9,10], "confirmed by Lindsay"),
  ("barn","Inside the barn",80.0,45.0,
   "The oldest building and the easternmost, closest to the water. Already living space before either "
   "renovation: whitewashed plaster between hand-hewn beams, a boxed stair up to a loft. Kitchen and "
@@ -259,6 +260,17 @@ ZONES = [
 PAGES = [("", "Gallery"), ("history/", "Three renovations"), ("map/", "Site map")]
 
 
+# Interior or exterior, for every photograph, so the filing rule can be checked
+# rather than just asserted in prose.
+PLATE_KIND = {n:"out" for n in (1,2,3,4,5,6,7,22,23,24,25)}
+PLATE_KIND.update({n:"in" for n in (8,9,10,11,12,13,14,15,16,17,18,19,20,21)})
+ALBUM_KIND = {n:"out" for n in (1,2,3,4,5,6,7,21,22,23)}
+ALBUM_KIND.update({n:"in" for n in (8,9,10,11,12,13,14,15,16,17,18,19,20,24)})
+
+# A zone is either a building you can be inside, or a piece of open ground.
+ZONE_KIND = {"approach":"ground", "garage":"building", "entrance":"building",
+             "greatroom":"building", "barn":"building", "house":"building", "east":"ground"}
+
 # --- integrity check: no photograph may appear in two zones -------------------
 def _check():
     import collections
@@ -270,5 +282,23 @@ def _check():
     assert covered == set(ALBUM), "album not fully placed: %s" % sorted(set(ALBUM) - covered)
     covered = set(i for z in ZONES for i in z[6])
     assert covered == set(PLATES), "plates not fully placed: %s" % sorted(set(PLATES) - covered)
+
+    # An interior may never sit in a ground zone. Worth being honest about the limit
+    # of this: it would NOT have caught the bug that prompted it. Plate 10, a living
+    # room interior, was filed under "Front entrance & evening deck" — a building
+    # zone — because of what it looks out at. Which building an interior is inside is
+    # a judgement, not something derivable from the data, so this check catches only
+    # the coarser mistake of putting an interior on open ground.
+    # (The reverse is allowed: an exterior may sit with a building when it is that
+    # building's only outside record.)
+    for k, l, x, y, b, al, nw, cf in ZONES:
+        if ZONE_KIND[k] != "ground":
+            continue
+        inside = [i for i in al if ALBUM_KIND[i] == "in"] 
+        assert not inside, "album interiors in ground zone %s: %s" % (k, inside)
+        inside = [i for i in nw if PLATE_KIND[i] == "in"]
+        assert not inside, "plate interiors in ground zone %s: %s" % (k, inside)
+
+    assert set(ZONE_KIND) == {z[0] for z in ZONES}, "ZONE_KIND out of step with ZONES"
 
 _check()
