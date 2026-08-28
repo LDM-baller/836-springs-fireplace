@@ -67,8 +67,8 @@ PLATES = {
     "Bluestone terrace and steps · teak dining · round gas fire pit · black Adirondacks."),
  24:("The east elevation from the lawn",
     "How the house sits down into the grade; shingle weathering evenly."),
- 25:("The outbuilding across the terrace",
-    "Matching shingle and roof · steel sliders · covered porch on the main house at right."),
+ 25:("The barn from the north",
+    "Looking south across the terrace. Matching shingle and roof, steel sliders, covered porch at the right."),
 }
 
 SECTIONS = [
@@ -141,9 +141,9 @@ ALBUM = {
  17:"Glazed doors and the barn’s red door",
  18:"Camera facing south toward the Pollock-Krasner house; the evening deck was later built off to the right",
  19:"The barn loft stripped to the frame, new windows set, insulation stacked",
- 20:"New roof framing — rafters and collar ties, not the barn’s trusses",
- 21:"Re-shingling from the scaffold, new cedar going over weathered grey",
- 22:"The new brick chimney — the one standing beside the entry porch today",
+ 20:"New roof framing — the roof over what is now the primary bedroom. Rafters and collar ties, not the barn’s trusses",
+ 21:"Re-shingling the structure just west of the barn — the great room — new cedar going over weathered grey",
+ 22:"The new brick chimney, outside. The fireplace it serves is the whitewashed one in the great room",
  23:"The east elevation finished, camera looking west",
  24:"The barn’s vaulted ceiling, dark-stained and without tie rods — the kitchen ceiling today",
 }
@@ -216,42 +216,39 @@ TRACE = [
 ZONES = [
  ("approach","Road &amp; approach",42.0,43.5,
   "Springs Fireplace Road runs along the west boundary and the driveway loops in to the motor court. "
-  "The sunset side, and the only part of the property a visitor sees first.",
+  "The sunset side, and the only part of the property a visitor sees first. The two aerials here also "
+  "show the revegetation buffer along the east line.",
   [5], [1,2,3,4,5], "surveyed"),
  ("garage","The garage — now media room",60.0,38.0,
   "A long range under a screened porch, standing separate with a brick breezeway under a lattice arch "
   "running to its neighbour. Media room, mud room and laundry today.",
-  [5,6], [15,25], "confirmed by Lindsay"),
+  [5,6], [15], "confirmed by Lindsay"),
  ("entrance","Front entrance &amp; evening deck",63.0,56.0,
   "The westernmost of the four buildings. The evening deck was built in front of and around it &mdash; "
   "named for what it is used for, since this is the side the sun sets on.",
   [5], [6,7,10], "confirmed by Lindsay"),
  ("greatroom","The great room",72.0,52.0,
-  "Its own building once, standing between the entrance and the barn. It holds the whitewashed brick "
-  "fireplace &mdash; brick in the album, whitewashed in this renovation &mdash; which faces south toward "
-  "the Pollock-Krasner house.",
-  [13,14,18], [8,9,11], "confirmed by Lindsay"),
+  "Its own building once, standing between the entrance and the barn. It carries the brick chimney "
+  "built in the previous renovation, and the fireplace that chimney serves &mdash; bare brick in the "
+  "album, whitewashed now &mdash; faces south toward the Pollock-Krasner house.",
+  [13,14,18,21,22], [8,9], "confirmed by Lindsay"),
  ("barn","Inside the barn",80.0,45.0,
   "The oldest building and the easternmost, closest to the water. Already living space before either "
-  "renovation: whitewashed plaster between hand-hewn beams, a boxed stair up to a loft. The kitchen "
-  "today. <b>The album dwells on this building because it is where most of the work was</b> &mdash; "
-  "outside views of it are filed under the east terrace, where the camera was standing.",
-  [8,9,10,11,12,15,16,17,19,24], [12,13,14], "position approximate"),
- ("house","The dwelling",75.0,72.0,
-  "The block the survey labels <i>2 Story Frame Dwelling</i>. The second floor, the roof framing and the "
-  "new brick chimney all belong to the previous renovation. Downstairs: the bunkroom and its bath. "
-  "Upstairs: both bedrooms and the primary bath.",
-  [20,21,22], [16,17,18,19,20,21], "surveyed"),
- ("east","The east side — terrace and pool",83.0,62.0,
-  "<i>Brick Patio</i> on the survey, and the ground the pool stood on. It sat against the barn&rsquo;s "
-  "north side and wrapped this corner; bluestone covers it now, with the fire pit on top. "
-  "<b>Every outside view of the barn is here</b>, because this is where the photographer was standing.",
-  [1,2,3,4,7,23], [22,23,24], "confirmed by Lindsay"),
- ("wetland","The wetland edge",93.0,63.0,
-  "The revegetation and non-disturbance buffer along the east line &mdash; 4,053 sq ft of switch grass, "
-  "little bluestem and northern bayberry, all of it visible from the air. Beyond it, Accabonac Harbor "
-  "and the Merrill Lake Sanctuary.",
-  [], [1,2], "surveyed"),
+  "renovation: whitewashed plaster between hand-hewn beams, a boxed stair up to a loft. Kitchen and "
+  "dining today. <b>The album dwells on this building because it is where most of the work was</b> "
+  "&mdash; outside views of it are filed under the east side, where the camera was standing.",
+  [8,9,10,11,12,15,16,17,19,24], [11,12,13,14], "position approximate"),
+ ("house","The two-storey block",75.0,72.0,
+  "The block the survey labels <i>2 Story Frame Dwelling</i>. Its upper floor was framed in the previous "
+  "renovation &mdash; the roof going on in the album is the roof over the primary bedroom. Downstairs: "
+  "the bunkroom and its bath. Upstairs: both bedrooms, the stair and the primary bath.",
+  [20], [16,17,18,19,20,21], "surveyed"),
+ ("east","The east side — terrace, pool, wetland",83.0,62.0,
+  "<i>Brick Patio</i> on the survey, and the ground the pool stood on. The pool sat against the "
+  "barn&rsquo;s north side and wrapped this corner; bluestone covers it now, with the fire pit on top. "
+  "<b>Every outside view of the barn is here</b>, because this is where the photographer stood. Past "
+  "the terrace, the revegetation buffer runs down to Accabonac Harbor and the Merrill Lake Sanctuary.",
+  [1,2,3,4,7,23], [22,23,24,25], "confirmed by Lindsay"),
 ]
 
 PAGES = [("", "Gallery"), ("history/", "Three renovations"), ("map/", "Site map")]
