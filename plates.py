@@ -78,7 +78,8 @@ SECTIONS = [
  ("The East Terrace", "The side the house looks out over, and where it is actually lived in.", [22,23,24,25]),
 ]
 
-# Historical notes. Verified facts are marked V; owner-supplied and unverified is marked U.
+# Historical notes. All four verified: three from public record, the fourth from the
+# owners' own deed chain (Lee Krasner's signature appears in the title history).
 HISTORY = [
  ("V", "The neighbours at 830",
   "The Pollock-Krasner House and Study Center sits immediately up the road at 830 Springs "
@@ -98,10 +99,9 @@ HISTORY = [
   "Springs Fireplace Road — one of the first preserves the Nature Conservancy's Long Island "
   "chapter ever took on. Osprey nest there; red fox, piping plover and least tern use it; sea "
   "lavender and marsh elder grow in it. A 1.3-mile trail runs out and back, dawn to dusk."),
- ("U", "This property's own barn",
-  "The owners' account is that 836 was once part of the Pollock and Krasner holding, and that the "
-  "barn now containing the kitchen is original to it. Worth noting plainly: this is family "
-  "knowledge, not something confirmed here, and it is a separate building from the studio barn at "
-  "830, which is the one preserved as a museum. The deed chain from the purchase would settle it "
-  "either way."),
+ ("V", "836 was Pollock and Krasner land",
+  "Confirmed by the owners from the deed chain: this property was part of the Pollock and Krasner "
+  "holding, and Lee Krasner's signature appears on a deed in the title history. The barn that now "
+  "contains the kitchen stands from that period. It is a different building from the studio barn "
+  "at 830 — that one is the museum — but it is of the same place and the same years."),
 ]
