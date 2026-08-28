@@ -25,10 +25,10 @@ PLATES = {
     "Named for what it is used for — this is the sunset side. Painted pergola, hanging "
     "swing, bluestone steps, planted urn."),
  8:("The great room, end to end",
-    "Pale oak floors · rope-wrapped ring chandelier · stacked-stone fireplace · pale blue walls."),
+    "Pale oak floors · rope-wrapped ring chandelier · whitewashed brick fireplace · pale blue walls."),
  9:("Living room, looking west",
     "The view out is the evening deck and the western sky. Cream sectional, leather sling "
-    "chairs, oak coffee table, stone fireplace surround."),
+    "chairs, oak coffee table, whitewashed brick fireplace."),
  10:("Sliders open to the deck",
     "The indoor–outdoor move: the slider pockets away and the oak floor reads straight through."),
  11:("Dining against the window wall",
@@ -108,88 +108,123 @@ HISTORY = [
 
 
 # ---------------------------------------------------------------- album pages
+#
+# Attributions corrected 2026-08-28 by Lindsay, going through the album photograph
+# by photograph. The correction that reorganised everything: **the building with the
+# red door is the BARN**, not the dwelling. Most of what was filed as "the house"
+# before that pass was the barn, which had already been converted to living space
+# by the time these pictures were taken.
+#
+# Directions here are Lindsay's unless a caption says otherwise. Where she could not
+# place something, the caption says so rather than guessing.
 
-# The renovation before this one, from the album Lindsay filmed. id -> caption.
 ALBUM = {
- 1:"The house with the old pool in front of it", 2:"The red door, white surround, brick steps",
- 3:"The house from the west lawn", 4:"House and outbuildings seen from the field",
- 5:"The shed range and outbuildings", 6:"The covered walk along the sheds",
- 7:"Boarded up, work starting", 8:"Barn stripped back \u2014 twelve-light windows",
- 9:"Barn interior, door and plywood", 10:"Hand-hewn beams and the old stair",
- 11:"Whitewashed room under hand-hewn beams", 12:"The white stair with iron balusters",
- 13:"Brick chimney breast exposed", 14:"Fireplace framed, lumber stacked",
- 15:"The carved cast-iron firebox \u2014 kept", 16:"Wide-plank floors and the cast-iron stove \u2014 kept",
- 17:"Glazed doors and the red door", 18:"Beadboard wainscot going in",
- 19:"New framing, insulation stacked", 20:"Attic framing",
- 21:"Re-shingling from the scaffold", 22:"The new brick chimney going up",
- 23:"Rear elevation, new construction", 24:"Dark beams against the white ceiling",
+ 1:"The barn from the north, with the old pool in front of it — the pool ground is under the bluestone terrace now",
+ 2:"The barn’s red door and brick steps, close up",
+ 3:"The barn from the east, camera standing toward Accabonac Harbor and looking west",
+ 4:"The barn from the field, with the outbuilding range running off to the right",
+ 5:"Looking east: the building at centre is the current front entrance; the range on the left was the garage, now the media room, mud room and laundry",
+ 6:"The covered walk — a breezeway between two separate buildings, the garage range on the right",
+ 7:"The barn boarded up, work starting",
+ 8:"Inside the barn at ground level, a wall of three six-over-six windows",
+ 9:"The barn loft — batten door and glazed door under the roof slope",
+ 10:"Inside the barn: hand-hewn beams and the stair up to the loft",
+ 11:"Inside the barn looking east toward Accabonac Harbor — the red door is at the left of frame",
+ 12:"Inside the barn looking west toward what is now the evening deck. The camera stands where the kitchen is today; this wall and stair came out",
+ 13:"The fireplace, before it was whitewashed — it faces south, toward the Pollock-Krasner house",
+ 14:"The same fireplace framed out, lumber stacked",
+ 15:"The carved cast-iron firebox, stored in the barn during the work",
+ 16:"The barn loft — wide-plank floors, a cast-iron stove, and new ductwork threaded along the ceiling",
+ 17:"Glazed doors and the barn’s red door",
+ 18:"Camera facing south toward the Pollock-Krasner house; the evening deck was later built off to the right",
+ 19:"The barn loft stripped to the frame, new windows set, insulation stacked",
+ 20:"New roof framing — rafters and collar ties, not the barn’s trusses",
+ 21:"Re-shingling from the scaffold, new cedar going over weathered grey",
+ 22:"The new brick chimney — the one standing beside the entry porch today",
+ 23:"The east elevation finished, camera looking west",
+ 24:"The barn’s vaulted ceiling, dark-stained and without tie rods — the kitchen ceiling today",
 }
 
-# roman, title, subtitle, body, [(album id, caption override or None)], [plate ids]
 ERAS = [
- ("I", "The compound", "before the previous renovation",
-  "Not one house but a cluster: a two-storey shingled dwelling with a red door and brick steps, a "
-  "timber-framed barn with a run of glazing set into its roof slope, a long low shed range under a "
-  "covered walk, and an in-ground pool sitting right up against the house. Everything grey, "
-  "everything weathered.",
-  [1, 5, 2], [1]),
- ("II", "The renovation before this one", "from the album",
-  "A gut. Floors came out to the joists, walls back to the hand-hewn frame, windows out. New "
-  "concrete-block foundations went in on the wetland side, a second floor was framed onto the "
-  "dwelling, a tall brick chimney was built, and the whole thing was re-shingled. The barn was kept. "
-  "So were the wide-plank floors and a carved cast-iron firebox.",
+ ("I", "A compound, not a house", "before the previous renovation",
+  "Separate buildings scattered across the lot: a timber-framed <b>barn</b> already fitted out for "
+  "living, with a red door, a boxed stair up to a loft and whitewashed plaster between hand-hewn "
+  "beams; a <b>garage</b> under a long screened range; a dwelling; and an <b>in-ground pool</b>. A "
+  "brick-paved breezeway under a lattice arch ran between two of them. Everything grey, everything "
+  "weathered.",
+  [1, 5, 6], []),
+ ("II", "The renovation before this one", "2003 or later",
+  "A gut, and a joining-up. Floors came out to the joists, walls back to the hand-hewn frame, windows "
+  "out. New concrete-block foundations went in on the wetland side, a second floor was framed, a tall "
+  "brick chimney was built, and the whole thing was re-shingled. The separate buildings were pulled "
+  "together into the single footprint the survey now draws. <b>The date comes from a Marvin "
+  "&lsquo;Integrity&rsquo; window sticker propped against the brickwork in one frame &mdash; that line "
+  "launched in 2003, and it is the only hard date anywhere in the album.</b>",
   [7, 10, 22, 12, 16, 23], []),
  ("III", "This renovation", "photographed by Tim Williams",
-  "The barn survived a second time and became the kitchen \u2014 the hand-hewn frame reworked as "
-  "painted trusses with steel tie rods through it. The brick chimney stayed. The pool ground became "
-  "the bluestone terrace and fire pit. Everything went white cedar, black steel windows, marble and oak.",
-  [], [13, 6, 23]),
+  "The barn survived a second time and became the kitchen &mdash; the hand-hewn frame reworked as "
+  "painted trusses with steel tie rods threaded through, and the internal wall and stair taken out to "
+  "open it up. The brick chimney stayed and the fireplace was whitewashed. The garage became the media "
+  "room, mud room and laundry. The evening deck went in at the front entrance, and the pool ground "
+  "became bluestone terrace.",
+  [24], [13, 6, 23]),
 ]
 
-# element, then, now, evidence
 TRACE = [
- ("The barn", "Kept", "Kept",
-  "The oldest thing on the property and the only structure to survive both renovations intact. "
-  "Pollock-and-Krasner-era. Now the kitchen."),
- ("The brick chimney", "Built new", "Kept",
-  "Not original \u2014 it goes up in the album\u2019s photographs. It is the chimney beside the entry porch today."),
- ("The dwelling", "Gutted, second floor added", "Rebuilt around",
-  "The core is old; the massing was largely set by the previous renovation, on new block foundations "
-  "toward the wetland."),
- ("The in-ground pool", "Still in use", "Gone",
-  "Visible beside the house in the album, and again behind the new foundation wall. Absent from every "
-  "current frame, and absent from the 2021 survey \u2014 the terrace and fire pit occupy that ground."),
- ("The shed range", "Standing", "Possibly the outbuilding",
-  "A long low range under a covered walk. Something of that footprint reads as the outbuilding across "
-  "the terrace today, but this one is an inference."),
+ ("The barn", "Kept, gutted", "Kept, opened up",
+  "The oldest thing on the property and the only structure to survive both renovations. It was already "
+  "living space before either — whitewashed plaster between hand-hewn beams, a boxed stair to a loft. "
+  "This renovation took out that wall and stair; the kitchen stands where the stair was."),
+ ("The barn’s roof trusses", "Dark-stained, exposed", "Painted, steel rods added",
+  "The clearest then-and-now pair in the album: same truss geometry, same small square gable window. "
+  "The timbers were dark; they were painted out and the steel tie rods threaded through."),
+ ("The red door", "The barn’s door, behind a glazed porch", "Gone",
+  "It appears in four frames and is the easiest thing to track the barn by. Nothing in the current "
+  "photographs shows it."),
+ ("The garage", "A long range under a screened porch", "Media room, mud room, laundry",
+  "Separate from everything else, with a brick breezeway under a lattice arch running to its neighbour."),
+ ("The buildings themselves", "Separate", "One footprint",
+  "The album shows them standing apart with a dirt drive between; then a covered breezeway linking two "
+  "of them; the 2021 survey draws a single merged outline. Separate, then linked, then merged."),
+ ("The brick chimney", "Built new", "Kept, fireplace whitewashed",
+  "Not original — it goes up during the previous renovation. It is the chimney beside the entry porch "
+  "today, and the firebox it serves faces south toward the Pollock-Krasner house."),
+ ("The in-ground pool", "In use", "Under the terrace",
+  "It sits right against the barn in the earliest frames and again behind the new foundation wall. "
+  "The bluestone terrace covers that ground now, and the pool never appears on the 2021 survey."),
  ("Wide-plank floors, cast-iron firebox", "Salvaged", "Unclear",
-  "Both were photographed as saved pieces. Whether either survived into the current house is not "
-  "visible in the Tim Williams set."),
+  "Both were photographed as kept pieces, the firebox stored in the barn mid-job. Whether either is in "
+  "the house now is not visible in the Tim Williams set."),
 ]
 
-# key, label, x%, y%, blurb, album ids, plate ids, confidence
 ZONES = [
  ("approach","Road &amp; approach",42.0,43.5,
-  "Springs Fireplace Road runs along the west boundary; the driveway loops in to the motor court. "
-  "This is the sunset side.", [3,4], [3,4,1], "surveyed"),
- ("house","The dwelling",75.0,68.0,
-  "The survey labels this block <i>2 Story Frame Dwelling</i>. Its core is old, but the massing was "
-  "largely set by the previous renovation \u2014 second floor added, new chimney, re-shingled.",
-  [1,2,7,12,13,14,17,18,20,21,22], [8,9,11], "surveyed"),
- ("porch","The porch",64.5,55.0,
-  "Labelled <i>Porch</i> on the west face of the dwelling. The entry side.", [], [6], "surveyed"),
+  "Springs Fireplace Road runs along the west boundary and the driveway loops in to the motor court. "
+  "The sunset side.", [], [3,4,1], "surveyed"),
+ ("entrance","Front entrance &amp; evening deck",64.5,55.0,
+  "The building at the centre of frame 05 is the current front entrance, and the evening deck was built "
+  "in front of and around it. West-facing, which is why it is the sunset side.",
+  [5], [6,7], "confirmed by Lindsay"),
+ ("garage","The garage — now media room",57.0,60.0,
+  "A long range under a screened porch, standing separate from the rest with a brick breezeway running "
+  "to its neighbour. It is the media room, mud room and laundry today.",
+  [6], [15], "confirmed by Lindsay"),
  ("barn","The barn",70.0,40.0,
-  "The oldest structure, and now the kitchen. <b>Its exact position inside the footprint is not "
-  "labelled on the survey</b> \u2014 this marker sits at the north block, which is a reading of the "
-  "photographs, not a surveyed fact.", [8,9,10,11,24], [13,14], "inferred"),
- ("sheds","Outbuildings &amp; shed range",57.0,60.0,
-  "A long low range under a covered walk, standing before the previous renovation. Whether it became "
-  "the outbuilding across the terrace, or was lost, is <b>not settled</b>.", [5,6], [25], "inferred"),
- ("east","East side \u2014 patio and terrace",81.0,53.0,
-  "<i>Brick Patio</i> and <i>Existing Patio and Deck to be Replaced / Repaired in Place</i>. The pool "
-  "sat somewhere on this side; the bluestone terrace and fire pit are here now.", [19,23], [22,23], "surveyed"),
+  "The oldest structure and the one this whole album is really about. Already living space before either "
+  "renovation; the kitchen today. Faces east toward Accabonac Harbor, with the red door on the north side. "
+  "<b>Its exact outline inside the merged footprint is still not drawn on the survey</b> — the marker "
+  "position is approximate.",
+  [1,2,3,4,7,8,9,10,11,12,15,16,17,19,24], [13,14], "position approximate"),
+ ("house","The dwelling",75.0,68.0,
+  "The survey labels this block <i>2 Story Frame Dwelling</i>. The fireplace here faces south toward the "
+  "Pollock-Krasner house; it was whitewashed in this renovation.",
+  [13,14,18,20,21,22], [8,9,11], "surveyed"),
+ ("east","East terrace — where the pool was",81.0,53.0,
+  "<i>Brick Patio</i> on the survey. The in-ground pool stood here against the barn and was covered over "
+  "with bluestone. Fire pit and terrace now.",
+  [23], [22,23], "confirmed by Lindsay"),
  ("wetland","The wetland edge",93.0,63.0,
-  "The revegetation and non-disturbance buffer along the east line \u2014 4,053 sq ft of switch grass, "
+  "The revegetation and non-disturbance buffer along the east line — 4,053 sq ft of switch grass, "
   "little bluestem and northern bayberry. Beyond it, Accabonac Harbor.", [], [], "surveyed"),
 ]
 

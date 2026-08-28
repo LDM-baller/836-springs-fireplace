@@ -50,7 +50,7 @@ def slug(name): return name.replace("&amp;","and").lower().replace(" ","-").repl
 TOKENS = """
 :root {
   --ground:#EBEEF1; --surface:#F8F9FA; --paper:#FFFFFF; --ink:#12171C; --muted:#5E6873;
-  --accent:#1D3C61; --rule:#CDD3D9; --warn:#8C5A2E;
+  --accent:#1D3C61; --rule:#CDD3D9; --warn:#8C5A2E; --ok:#2F6B4F;
   --shadow:0 1px 2px rgba(18,23,28,.06),0 12px 32px rgba(18,23,28,.09);
   --serif:"Bodoni Moda",Georgia,"Times New Roman",serif;
   --sans:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
@@ -59,7 +59,7 @@ TOKENS = """
 @media (prefers-color-scheme: dark) {
   :root {
     --ground:#0E1216; --surface:#161B21; --paper:#E9ECEF; --ink:#E4E8EC; --muted:#939DA8;
-    --accent:#82A6CC; --rule:#28303A; --warn:#C79461;
+    --accent:#82A6CC; --rule:#28303A; --warn:#C79461; --ok:#7BB894;
     --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 40px rgba(0,0,0,.5);
   }
 }
@@ -407,6 +407,7 @@ h1 { font-family:var(--serif); font-weight:400; font-size:clamp(2rem,5.5vw,3.6re
   box-shadow:0 2px 8px rgba(0,0,0,.35); transition:transform .18s ease; }
 .pin span { pointer-events:none; }
 .pin.inferred { background:var(--warn); border-style:dashed; }
+.pin.confirmed { background:var(--ok); }
 .pin:hover,.pin[aria-current="true"] { transform:translate(-50%,-50%) scale(1.22); }
 .pin[aria-current="true"] { box-shadow:0 0 0 5px rgba(29,60,97,.28),0 2px 8px rgba(0,0,0,.35); }
 .north { position:absolute; right:2.5%; top:3%; font-family:var(--mono); font-size:.62rem;
@@ -428,6 +429,7 @@ h1 { font-family:var(--serif); font-weight:400; font-size:clamp(2rem,5.5vw,3.6re
   text-transform:uppercase; padding:.16rem .45rem; border:1px solid var(--rule); margin-bottom:.7rem; }
 .tag.surveyed { color:var(--accent); }
 .tag.inferred { color:var(--warn); border-color:var(--warn); }
+.tag.confirmed { color:var(--ok); border-color:var(--ok); }
 .panel .blurb { margin:0 0 1.3rem; font-size:.88rem; color:var(--muted); }
 .grouphead { font-family:var(--mono); font-size:.6rem; letter-spacing:.16em; text-transform:uppercase;
   color:var(--accent); margin:1.3rem 0 .7rem; padding-bottom:.35rem; border-bottom:1px solid var(--rule); }
@@ -456,9 +458,15 @@ h1 { font-family:var(--serif); font-weight:400; font-size:clamp(2rem,5.5vw,3.6re
   font-size:1.1rem; cursor:pointer; }
 """
 
+CONF = {
+    "surveyed":            ("surveyed",  "On the survey"),
+    "confirmed by Lindsay":("confirmed", "Confirmed by the owner"),
+    "position approximate":("inferred",  "Position approximate"),
+}
+
 def build_map():
     pins = "".join(
-      f'<button class="pin {cf}" style="left:{x}%;top:{y}%" data-z="{k}" '
+      f'<button class="pin {CONF[cf][0]}" style="left:{x}%;top:{y}%" data-z="{k}" '
       f'aria-label="{l.replace("&amp;","and")}"><span>{i+1}</span></button>'
       for i,(k,l,x,y,b,al,nw,cf) in enumerate(ZONES))
     legend = "".join(
@@ -467,7 +475,8 @@ def build_map():
       f'<span class="cnt">{len(al)} then &middot; {len(nw)} now</span></button></li>'
       for i,(k,l,x,y,b,al,nw,cf) in enumerate(ZONES))
     data = json.dumps({
-      "zones": {k:{"label":l.replace("&amp;","&"),"blurb":b,"album":al,"now":nw,"conf":cf}
+      "zones": {k:{"label":l.replace("&amp;","&"),"blurb":b,"album":al,"now":nw,
+                   "conf":CONF[cf][0],"conflabel":CONF[cf][1]}
                 for k,l,x,y,b,al,nw,cf in ZONES},
       "album": {str(k):{"c":v,"src":"../img/album/a%02d.jpg"%k} for k,v in ALBUM.items()},
       "now":   {str(n):{"c":PLATES[n][0],"src":"../"+D[n]["s"]} for n in PLATES},
@@ -493,10 +502,10 @@ def build_map():
   </div>
 </div>
 <section class="caveat">
-  <h2>Where this map is soft</h2>
-  <p><b>The survey shows one merged footprint.</b> It labels <i>2 Story Frame Dwelling</i>, <i>Porch</i>, <i>Brick Patio</i> and <i>Wood Steps</i> &mdash; it does not distinguish the barn, and it does not show a separate outbuilding. So the barn and shed-range markers are placed from what the photographs show, not from the drawing.</p>
-  <p><b>The plan is dated during this renovation, not before it.</b> Everything marked <i>Proposed</i> &mdash; the deck, the driveway, the septic &mdash; is the current work; everything marked <i>Existing</i> is what the previous renovation left behind. So this single drawing is both the old footprint and the new one, depending on which labels you read.</p>
-  <p><b>The pool is not on this plan at all,</b> though it is in the album photographs twice.</p>
+  <h2>Where this map is still soft</h2>
+  <p><b>Most of it is now settled.</b> The owner went through the album photograph by photograph, and the reorganising correction was that <b>the building with the red door is the barn</b>, not the dwelling &mdash; so most of what had been filed as &ldquo;the house&rdquo; is the barn, which was already living space before either renovation.</p>
+  <p><b>What is left:</b> the survey draws one merged footprint and never distinguishes the barn inside it, so the barn marker is placed by eye. And one geometry question is open &mdash; the pool reads as standing off the barn&rsquo;s north side in frame 01, while the bluestone that replaced it is on the east. Either the terrace wraps that corner, or one of those readings needs adjusting.</p>
+  <p><b>The plan is dated during this renovation, not before it.</b> Everything marked <i>Proposed</i> &mdash; the deck, the driveway, the septic &mdash; is the current work; everything marked <i>Existing</i> is what the previous renovation left behind.</p>
 </section>
 </div>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged photograph">
@@ -520,7 +529,7 @@ def build_map():
   function show(k){{
     var z=D.zones[k];
     panel.innerHTML='<h2>'+z.label+'</h2>'
-      +'<span class="tag '+z.conf+'">'+(z.conf==="surveyed"?"On the survey":"Read from the photographs")+'</span>'
+      +'<span class="tag '+z.conf+'">'+z.conflabel+'</span>'
       +'<p class="blurb">'+z.blurb+'</p>'
       +'<p class="grouphead">Before this renovation</p>'+thumbs(z.album,D.album)
       +'<p class="grouphead">Today</p>'+thumbs(z.now,D.now);
