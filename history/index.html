@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Three renovations, one barn</title>
+<meta name="description" content="How 836 Springs Fireplace Road changed across two renovations, and what survived each.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Three renovations, one barn">
+<meta property="og:description" content="How 836 Springs Fireplace Road changed across two renovations, and what survived each.">
+<meta name="theme-color" content="#EBEEF1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1216" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@300;400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>&#127969;</text></svg>">
+<style>
+:root {
+  --ground:#EBEEF1; --surface:#F8F9FA; --paper:#FFFFFF; --ink:#12171C; --muted:#5E6873;
+  --accent:#1D3C61; --rule:#CDD3D9; --warn:#8C5A2E;
+  --shadow:0 1px 2px rgba(18,23,28,.06),0 12px 32px rgba(18,23,28,.09);
+  --serif:"Bodoni Moda",Georgia,"Times New Roman",serif;
+  --sans:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground:#0E1216; --surface:#161B21; --paper:#E9ECEF; --ink:#E4E8EC; --muted:#939DA8;
+    --accent:#82A6CC; --rule:#28303A; --warn:#C79461;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 40px rgba(0,0,0,.5);
+  }
+}
+*,*::before,*::after { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+body { margin:0; background:var(--ground); color:var(--ink); font-family:var(--sans);
+  font-weight:300; line-height:1.62; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+img { display:block; max-width:100%; height:auto; }
+:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.titleblock { position:sticky; top:0; z-index:40; display:flex; flex-wrap:wrap;
+  gap:.2rem 1.5rem; justify-content:space-between; align-items:baseline;
+  padding:.55rem clamp(1rem,4vw,3rem);
+  padding-left:max(1rem,env(safe-area-inset-left)); padding-right:max(1rem,env(safe-area-inset-right));
+  background:var(--surface); border-bottom:1px solid var(--rule);
+  font-family:var(--mono); font-size:.62rem; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--muted); }
+.titleblock b { color:var(--ink); font-weight:500; }
+.pagenav { display:flex; gap:1.3rem; overflow-x:auto; -webkit-overflow-scrolling:touch;
+  padding:.85rem clamp(1rem,4vw,3rem); border-bottom:1px solid var(--rule);
+  font-family:var(--mono); font-size:.64rem; letter-spacing:.13em; text-transform:uppercase;
+  scrollbar-width:none; }
+.pagenav::-webkit-scrollbar { display:none; }
+.pagenav a { color:var(--muted); text-decoration:none; white-space:nowrap; padding:.35rem 0;
+  border-bottom:1px solid transparent; }
+.pagenav a:hover { color:var(--accent); }
+.pagenav a[aria-current="page"] { color:var(--ink); border-bottom-color:var(--accent); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto; }
+  *,*::before,*::after { transition-duration:.01ms !important; animation-duration:.01ms !important; }
+}
+
+.wrap { max-width:74rem; margin:0 auto; padding:0 clamp(1rem,4vw,3rem) 4rem; }
+header.top { padding:clamp(2.2rem,6vw,4rem) 0 clamp(1.4rem,3vw,2.4rem); border-bottom:1px solid var(--rule); }
+.eyebrow { font-family:var(--mono); font-size:.64rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--accent); margin:0 0 .9rem; }
+h1 { font-family:var(--serif); font-weight:400; font-size:clamp(2rem,6vw,4.2rem); line-height:1.04;
+  margin:0; letter-spacing:-.015em; text-wrap:balance; }
+.lede { margin:1.1rem 0 0; max-width:60ch; color:var(--muted); font-size:clamp(.95rem,1.7vw,1.1rem); }
+.era { padding:clamp(2.2rem,6vw,4.2rem) 0 0; }
+.erahead { display:flex; gap:1.2rem; align-items:baseline; padding-bottom:1rem;
+  border-bottom:1px solid var(--rule); margin-bottom:1.3rem; }
+.roman { font-family:var(--serif); font-size:clamp(1.8rem,4vw,3rem); color:var(--accent); line-height:1; }
+.erahead h2 { font-family:var(--serif); font-weight:400; font-size:clamp(1.5rem,3.2vw,2.3rem);
+  margin:0; letter-spacing:-.01em; }
+.sub { margin:.2rem 0 0; font-family:var(--mono); font-size:.64rem; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--muted); }
+.erabody { max-width:62ch; margin:0 0 1.7rem; font-size:.97rem; }
+.shots { display:grid; gap:1.4rem; }
+@media (min-width:760px) { .shots { grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.8rem; } }
+.shots figure { margin:0; display:flex; flex-direction:column; gap:.6rem; }
+.shots img { width:100%; box-shadow:var(--shadow); }
+.shots figcaption { font-size:.79rem; color:var(--muted); line-height:1.5; }
+h2.sec { font-family:var(--serif); font-weight:400; font-size:clamp(1.5rem,3.2vw,2.3rem);
+  margin:0 0 .4rem; letter-spacing:-.01em; }
+.seclede { margin:0 0 1.5rem; color:var(--muted); font-size:.92rem; max-width:62ch; }
+.tracewrap { margin-top:clamp(2.4rem,6vw,4.2rem); }
+.tablescroll { overflow-x:auto; }
+table { border-collapse:collapse; width:100%; min-width:44rem; font-size:.87rem; }
+th,td { text-align:left; padding:.85rem 1rem .85rem 0; border-bottom:1px solid var(--rule); vertical-align:top; }
+thead th { font-family:var(--mono); font-size:.61rem; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--accent); font-weight:500; border-bottom:1px solid var(--accent); }
+tbody th { font-weight:500; white-space:nowrap; padding-right:1.5rem; }
+td.note { color:var(--muted); min-width:22rem; }
+tbody td:nth-child(2),tbody td:nth-child(3) { font-family:var(--mono); font-size:.72rem;
+  white-space:nowrap; padding-right:1.5rem; }
+.caveat { margin-top:clamp(2.4rem,6vw,4rem); padding:clamp(1.3rem,3vw,2.2rem); background:var(--surface);
+  border:1px solid var(--rule); border-left:3px solid var(--warn); }
+.caveat h2 { font-family:var(--mono); font-size:.64rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--warn); margin:0 0 .9rem; font-weight:500; }
+.caveat li { margin-bottom:.6rem; font-size:.88rem; color:var(--muted); max-width:64ch; }
+.caveat li:last-child { margin-bottom:0; }
+.caveat b { color:var(--ink); font-weight:500; }
+</style>
+</head>
+<body>
+<div class="titleblock">
+  <span><b>836 Springs Fireplace Rd.</b> &nbsp;Springs, East Hampton, NY</span>
+  <span>Photographs <b>Tim Williams</b></span>
+</div>
+<nav class="pagenav"><a href="../">Gallery</a><a href="../history/" aria-current="page">Three renovations</a><a href="../map/">Site map</a></nav>
+<div class="wrap">
+<header class="top">
+  <p class="eyebrow">836 Springs Fireplace Road</p>
+  <h1>Three renovations, one barn</h1>
+  <p class="lede">Read from a survey, a photograph album, and a set of finished-house pictures &mdash; what the property was, what the renovation before this one did to it, and what is still standing from each.</p>
+</header>
+<section class="era"><div class="erahead"><span class="roman">I</span><div><h2>The compound</h2><p class="sub">before the previous renovation</p></div></div><p class="erabody">Not one house but a cluster: a two-storey shingled dwelling with a red door and brick steps, a timber-framed barn with a run of glazing set into its roof slope, a long low shed range under a covered walk, and an in-ground pool sitting right up against the house. Everything grey, everything weathered.</p><div class="shots"><figure><img src="../img/album/a01.jpg" alt="The house with the old pool in front of it" loading="lazy"><figcaption>The house with the old pool in front of it</figcaption></figure><figure><img src="../img/album/a05.jpg" alt="The shed range and outbuildings" loading="lazy"><figcaption>The shed range and outbuildings</figcaption></figure><figure><img src="../img/album/a02.jpg" alt="The red door, white surround, brick steps" loading="lazy"><figcaption>The red door, white surround, brick steps</figcaption></figure><figure><img src="../img/01-800.jpg" alt="Aerial over the property" loading="lazy"><figcaption>Aerial over the property</figcaption></figure></div></section><section class="era"><div class="erahead"><span class="roman">II</span><div><h2>The renovation before this one</h2><p class="sub">from the album</p></div></div><p class="erabody">A gut. Floors came out to the joists, walls back to the hand-hewn frame, windows out. New concrete-block foundations went in on the wetland side, a second floor was framed onto the dwelling, a tall brick chimney was built, and the whole thing was re-shingled. The barn was kept. So were the wide-plank floors and a carved cast-iron firebox.</p><div class="shots"><figure><img src="../img/album/a07.jpg" alt="Boarded up, work starting" loading="lazy"><figcaption>Boarded up, work starting</figcaption></figure><figure><img src="../img/album/a10.jpg" alt="Hand-hewn beams and the old stair" loading="lazy"><figcaption>Hand-hewn beams and the old stair</figcaption></figure><figure><img src="../img/album/a22.jpg" alt="The new brick chimney going up" loading="lazy"><figcaption>The new brick chimney going up</figcaption></figure><figure><img src="../img/album/a12.jpg" alt="The white stair with iron balusters" loading="lazy"><figcaption>The white stair with iron balusters</figcaption></figure><figure><img src="../img/album/a16.jpg" alt="Wide-plank floors and the cast-iron stove — kept" loading="lazy"><figcaption>Wide-plank floors and the cast-iron stove — kept</figcaption></figure><figure><img src="../img/album/a23.jpg" alt="Rear elevation, new construction" loading="lazy"><figcaption>Rear elevation, new construction</figcaption></figure></div></section><section class="era"><div class="erahead"><span class="roman">III</span><div><h2>This renovation</h2><p class="sub">photographed by Tim Williams</p></div></div><p class="erabody">The barn survived a second time and became the kitchen — the hand-hewn frame reworked as painted trusses with steel tie rods through it. The brick chimney stayed. The pool ground became the bluestone terrace and fire pit. Everything went white cedar, black steel windows, marble and oak.</p><div class="shots"><figure><img src="../img/13-800.jpg" alt="The original barn — now the kitchen" loading="lazy"><figcaption>The original barn — now the kitchen</figcaption></figure><figure><img src="../img/06-800.jpg" alt="The entry" loading="lazy"><figcaption>The entry</figcaption></figure><figure><img src="../img/23-800.jpg" alt="The terrace in use" loading="lazy"><figcaption>The terrace in use</figcaption></figure></div></section>
+<section class="tracewrap">
+  <h2 class="sec">What survived what</h2>
+  <p class="seclede">Traced element by element across the two renovations. Where the evidence runs out, the row says so.</p>
+  <div class="tablescroll"><table>
+    <thead><tr><th>Element</th><th>Previous renovation</th><th>This one</th><th>Evidence</th></tr></thead>
+    <tbody><tr><th scope="row">The barn</th><td>Kept</td><td>Kept</td><td class="note">The oldest thing on the property and the only structure to survive both renovations intact. Pollock-and-Krasner-era. Now the kitchen.</td></tr><tr><th scope="row">The brick chimney</th><td>Built new</td><td>Kept</td><td class="note">Not original — it goes up in the album’s photographs. It is the chimney beside the entry porch today.</td></tr><tr><th scope="row">The dwelling</th><td>Gutted, second floor added</td><td>Rebuilt around</td><td class="note">The core is old; the massing was largely set by the previous renovation, on new block foundations toward the wetland.</td></tr><tr><th scope="row">The in-ground pool</th><td>Still in use</td><td>Gone</td><td class="note">Visible beside the house in the album, and again behind the new foundation wall. Absent from every current frame, and absent from the 2021 survey — the terrace and fire pit occupy that ground.</td></tr><tr><th scope="row">The shed range</th><td>Standing</td><td>Possibly the outbuilding</td><td class="note">A long low range under a covered walk. Something of that footprint reads as the outbuilding across the terrace today, but this one is an inference.</td></tr><tr><th scope="row">Wide-plank floors, cast-iron firebox</th><td>Salvaged</td><td>Unclear</td><td class="note">Both were photographed as saved pieces. Whether either survived into the current house is not visible in the Tim Williams set.</td></tr></tbody>
+  </table></div>
+</section>
+<section class="caveat">
+  <h2>What would sharpen this</h2>
+  <ol>
+    <li><b>Which building is which.</b> The album shows a barn, a dwelling and a shed range as separate things; the 2021 survey shows one merged footprint. Walking the plan on site would pin each down.</li>
+    <li><b>When the previous renovation happened.</b> Film prints, cordless tools and the trucks in frame read late 1990s to mid 2000s, but nothing in the album is dated. A permit or CO would fix it.</li>
+    <li><b>The pool.</b> It is in the early photographs and gone from the current ones, and it is not on the 2021 survey at all.</li>
+    <li><b>The salvage.</b> Wide-plank floors and a carved cast-iron firebox were photographed as kept pieces. Whether either is in the house now is not something the photographs answer.</li>
+  </ol>
+</section>
+</div>
+
+</body>
+</html>

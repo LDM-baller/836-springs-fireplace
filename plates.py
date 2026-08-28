@@ -105,3 +105,92 @@ HISTORY = [
   "contains the kitchen stands from that period. It is a different building from the studio barn "
   "at 830 — that one is the museum — but it is of the same place and the same years."),
 ]
+
+
+# ---------------------------------------------------------------- album pages
+
+# The renovation before this one, from the album Lindsay filmed. id -> caption.
+ALBUM = {
+ 1:"The house with the old pool in front of it", 2:"The red door, white surround, brick steps",
+ 3:"The house from the west lawn", 4:"House and outbuildings seen from the field",
+ 5:"The shed range and outbuildings", 6:"The covered walk along the sheds",
+ 7:"Boarded up, work starting", 8:"Barn stripped back \u2014 twelve-light windows",
+ 9:"Barn interior, door and plywood", 10:"Hand-hewn beams and the old stair",
+ 11:"Whitewashed room under hand-hewn beams", 12:"The white stair with iron balusters",
+ 13:"Brick chimney breast exposed", 14:"Fireplace framed, lumber stacked",
+ 15:"The carved cast-iron firebox \u2014 kept", 16:"Wide-plank floors and the cast-iron stove \u2014 kept",
+ 17:"Glazed doors and the red door", 18:"Beadboard wainscot going in",
+ 19:"New framing, insulation stacked", 20:"Attic framing",
+ 21:"Re-shingling from the scaffold", 22:"The new brick chimney going up",
+ 23:"Rear elevation, new construction", 24:"Dark beams against the white ceiling",
+}
+
+# roman, title, subtitle, body, [(album id, caption override or None)], [plate ids]
+ERAS = [
+ ("I", "The compound", "before the previous renovation",
+  "Not one house but a cluster: a two-storey shingled dwelling with a red door and brick steps, a "
+  "timber-framed barn with a run of glazing set into its roof slope, a long low shed range under a "
+  "covered walk, and an in-ground pool sitting right up against the house. Everything grey, "
+  "everything weathered.",
+  [1, 5, 2], [1]),
+ ("II", "The renovation before this one", "from the album",
+  "A gut. Floors came out to the joists, walls back to the hand-hewn frame, windows out. New "
+  "concrete-block foundations went in on the wetland side, a second floor was framed onto the "
+  "dwelling, a tall brick chimney was built, and the whole thing was re-shingled. The barn was kept. "
+  "So were the wide-plank floors and a carved cast-iron firebox.",
+  [7, 10, 22, 12, 16, 23], []),
+ ("III", "This renovation", "photographed by Tim Williams",
+  "The barn survived a second time and became the kitchen \u2014 the hand-hewn frame reworked as "
+  "painted trusses with steel tie rods through it. The brick chimney stayed. The pool ground became "
+  "the bluestone terrace and fire pit. Everything went white cedar, black steel windows, marble and oak.",
+  [], [13, 6, 23]),
+]
+
+# element, then, now, evidence
+TRACE = [
+ ("The barn", "Kept", "Kept",
+  "The oldest thing on the property and the only structure to survive both renovations intact. "
+  "Pollock-and-Krasner-era. Now the kitchen."),
+ ("The brick chimney", "Built new", "Kept",
+  "Not original \u2014 it goes up in the album\u2019s photographs. It is the chimney beside the entry porch today."),
+ ("The dwelling", "Gutted, second floor added", "Rebuilt around",
+  "The core is old; the massing was largely set by the previous renovation, on new block foundations "
+  "toward the wetland."),
+ ("The in-ground pool", "Still in use", "Gone",
+  "Visible beside the house in the album, and again behind the new foundation wall. Absent from every "
+  "current frame, and absent from the 2021 survey \u2014 the terrace and fire pit occupy that ground."),
+ ("The shed range", "Standing", "Possibly the outbuilding",
+  "A long low range under a covered walk. Something of that footprint reads as the outbuilding across "
+  "the terrace today, but this one is an inference."),
+ ("Wide-plank floors, cast-iron firebox", "Salvaged", "Unclear",
+  "Both were photographed as saved pieces. Whether either survived into the current house is not "
+  "visible in the Tim Williams set."),
+]
+
+# key, label, x%, y%, blurb, album ids, plate ids, confidence
+ZONES = [
+ ("approach","Road &amp; approach",42.0,43.5,
+  "Springs Fireplace Road runs along the west boundary; the driveway loops in to the motor court. "
+  "This is the sunset side.", [3,4], [3,4,1], "surveyed"),
+ ("house","The dwelling",75.0,68.0,
+  "The survey labels this block <i>2 Story Frame Dwelling</i>. Its core is old, but the massing was "
+  "largely set by the previous renovation \u2014 second floor added, new chimney, re-shingled.",
+  [1,2,7,12,13,14,17,18,20,21,22], [8,9,11], "surveyed"),
+ ("porch","The porch",64.5,55.0,
+  "Labelled <i>Porch</i> on the west face of the dwelling. The entry side.", [], [6], "surveyed"),
+ ("barn","The barn",70.0,40.0,
+  "The oldest structure, and now the kitchen. <b>Its exact position inside the footprint is not "
+  "labelled on the survey</b> \u2014 this marker sits at the north block, which is a reading of the "
+  "photographs, not a surveyed fact.", [8,9,10,11,24], [13,14], "inferred"),
+ ("sheds","Outbuildings &amp; shed range",57.0,60.0,
+  "A long low range under a covered walk, standing before the previous renovation. Whether it became "
+  "the outbuilding across the terrace, or was lost, is <b>not settled</b>.", [5,6], [25], "inferred"),
+ ("east","East side \u2014 patio and terrace",81.0,53.0,
+  "<i>Brick Patio</i> and <i>Existing Patio and Deck to be Replaced / Repaired in Place</i>. The pool "
+  "sat somewhere on this side; the bluestone terrace and fire pit are here now.", [19,23], [22,23], "surveyed"),
+ ("wetland","The wetland edge",93.0,63.0,
+  "The revegetation and non-disturbance buffer along the east line \u2014 4,053 sq ft of switch grass, "
+  "little bluestem and northern bayberry. Beyond it, Accabonac Harbor.", [], [], "surveyed"),
+]
+
+PAGES = [("", "Gallery"), ("history/", "Three renovations"), ("map/", "Site map")]
