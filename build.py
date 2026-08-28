@@ -502,9 +502,9 @@ def build_map():
   </div>
 </div>
 <section class="caveat">
-  <h2>Where this map is still soft</h2>
-  <p><b>Most of it is now settled.</b> The owner went through the album photograph by photograph, and the reorganising correction was that <b>the building with the red door is the barn</b>, not the dwelling &mdash; so most of what had been filed as &ldquo;the house&rdquo; is the barn, which was already living space before either renovation.</p>
-  <p><b>What is left:</b> the survey draws one merged footprint and never distinguishes the barn inside it, so the barn marker is placed by eye. And one geometry question is open &mdash; the pool reads as standing off the barn&rsquo;s north side in frame 01, while the bluestone that replaced it is on the east. Either the terrace wraps that corner, or one of those readings needs adjusting.</p>
+  <h2>How to read this map</h2>
+  <p><b>The property was four separate buildings, running roughly west to east:</b> the volume that is now the front entrance, the garage range beside it, the building that became the great room, and furthest east &mdash; closest to the water &mdash; the barn. The previous renovation pulled them into the single footprint the survey draws.</p>
+  <p><b>The survey never subdivides that footprint.</b> It labels <i>2 Story Frame Dwelling</i>, <i>Porch</i>, <i>Brick Patio</i> and <i>Wood Steps</i>, and nothing else. So the markers for the entrance, the great room and the barn are placed along the west-to-east order the photographs establish, not on lines anyone surveyed. The order is solid; the exact positions are not.</p>
   <p><b>The plan is dated during this renovation, not before it.</b> Everything marked <i>Proposed</i> &mdash; the deck, the driveway, the septic &mdash; is the current work; everything marked <i>Existing</i> is what the previous renovation left behind.</p>
 </section>
 </div>

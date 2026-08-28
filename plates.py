@@ -119,10 +119,10 @@ HISTORY = [
 # place something, the caption says so rather than guessing.
 
 ALBUM = {
- 1:"The barn from the north, with the old pool in front of it — the pool ground is under the bluestone terrace now",
+ 1:"⭐ The key frame. Camera looking south/south-west toward the Pollock-Krasner house — a neighbouring roofline stands in the background at the left. The barn is at centre with its red door; the pool in the foreground sat on its north side and is under the bluestone now; the building at the right became the great room.",
  2:"The barn’s red door and brick steps, close up",
- 3:"The barn from the east, camera standing toward Accabonac Harbor and looking west",
- 4:"The barn from the field, with the outbuilding range running off to the right",
+ 3:"The barn from the east — camera standing out toward Accabonac Harbor, looking back west",
+ 4:"The barn from the field, with the building that became the great room running off to the right",
  5:"Looking east: the building at centre is the current front entrance; the range on the left was the garage, now the media room, mud room and laundry",
  6:"The covered walk — a breezeway between two separate buildings, the garage range on the right",
  7:"The barn boarded up, work starting",
@@ -147,17 +147,19 @@ ALBUM = {
 
 ERAS = [
  ("I", "A compound, not a house", "before the previous renovation",
-  "Separate buildings scattered across the lot: a timber-framed <b>barn</b> already fitted out for "
-  "living, with a red door, a boxed stair up to a loft and whitewashed plaster between hand-hewn "
-  "beams; a <b>garage</b> under a long screened range; a dwelling; and an <b>in-ground pool</b>. A "
-  "brick-paved breezeway under a lattice arch ran between two of them. Everything grey, everything "
-  "weathered.",
+  "Four separate buildings, strung roughly west to east across the lot. Furthest west, the volume that "
+  "is now the <b>front entrance</b>, with the <b>garage</b> and its long screened range beside it. Then "
+  "the building that became the <b>great room</b>. Furthest east, closest to the water, the timber-framed "
+  "<b>barn</b> &mdash; already fitted out for living, with a red door, a boxed stair up to a loft and "
+  "whitewashed plaster between hand-hewn beams. An <b>in-ground pool</b> sat against the barn&rsquo;s "
+  "north side, and a brick breezeway under a lattice arch ran between two of the others. Everything "
+  "grey, everything weathered.",
   [1, 5, 6], []),
  ("II", "The renovation before this one", "2003 or later",
   "A gut, and a joining-up. Floors came out to the joists, walls back to the hand-hewn frame, windows "
   "out. New concrete-block foundations went in on the wetland side, a second floor was framed, a tall "
-  "brick chimney was built, and the whole thing was re-shingled. The separate buildings were pulled "
-  "together into the single footprint the survey now draws. <b>The date comes from a Marvin "
+  "brick chimney was built, and the whole thing was re-shingled. <b>The four separate buildings were "
+  "pulled together into the single footprint the survey now draws.</b> <b>The date comes from a Marvin "
   "&lsquo;Integrity&rsquo; window sticker propped against the brickwork in one frame &mdash; that line "
   "launched in 2003, and it is the only hard date anywhere in the album.</b>",
   [7, 10, 22, 12, 16, 23], []),
@@ -181,11 +183,15 @@ TRACE = [
  ("The red door", "The barn’s door, behind a glazed porch", "Gone",
   "It appears in four frames and is the easiest thing to track the barn by. Nothing in the current "
   "photographs shows it."),
+ ("The great-room building", "A separate building east of the entrance", "The great room",
+  "In the earliest frame it stands to the right of the barn as its own structure. It is the room with "
+  "the whitewashed brick fireplace today."),
  ("The garage", "A long range under a screened porch", "Media room, mud room, laundry",
   "Separate from everything else, with a brick breezeway under a lattice arch running to its neighbour."),
  ("The buildings themselves", "Separate", "One footprint",
-  "The album shows them standing apart with a dirt drive between; then a covered breezeway linking two "
-  "of them; the 2021 survey draws a single merged outline. Separate, then linked, then merged."),
+  "Four of them, running west to east: front entrance, garage range, great room, barn. The album shows "
+  "them standing apart with a dirt drive between; then a covered breezeway linking two; the 2021 survey "
+  "draws a single merged outline. Separate, then linked, then merged."),
  ("The brick chimney", "Built new", "Kept, fireplace whitewashed",
   "Not original — it goes up during the previous renovation. It is the chimney beside the entry porch "
   "today, and the firebox it serves faces south toward the Pollock-Krasner house."),
@@ -201,27 +207,29 @@ ZONES = [
  ("approach","Road &amp; approach",42.0,43.5,
   "Springs Fireplace Road runs along the west boundary and the driveway loops in to the motor court. "
   "The sunset side.", [], [3,4,1], "surveyed"),
- ("entrance","Front entrance &amp; evening deck",64.5,55.0,
-  "The building at the centre of frame 05 is the current front entrance, and the evening deck was built "
-  "in front of and around it. West-facing, which is why it is the sunset side.",
-  [5], [6,7], "confirmed by Lindsay"),
- ("garage","The garage — now media room",57.0,60.0,
-  "A long range under a screened porch, standing separate from the rest with a brick breezeway running "
-  "to its neighbour. It is the media room, mud room and laundry today.",
+ ("garage","The garage — now media room",60.0,38.0,
+  "A long range under a screened porch, standing separate with a brick breezeway running to its "
+  "neighbour. Media room, mud room and laundry today.",
   [6], [15], "confirmed by Lindsay"),
- ("barn","The barn",70.0,40.0,
-  "The oldest structure and the one this whole album is really about. Already living space before either "
-  "renovation; the kitchen today. Faces east toward Accabonac Harbor, with the red door on the north side. "
-  "<b>Its exact outline inside the merged footprint is still not drawn on the survey</b> — the marker "
-  "position is approximate.",
+ ("entrance","Front entrance &amp; evening deck",63.0,56.0,
+  "The westernmost of the four buildings. The evening deck was built in front of and around it, which "
+  "is why it is the sunset side.",
+  [5], [6,7], "confirmed by Lindsay"),
+ ("greatroom","The great room",72.0,52.0,
+  "Its own building once, standing between the entrance and the barn. It holds the whitewashed brick "
+  "fireplace, which faces south toward the Pollock-Krasner house.",
+  [13,14,18], [8,9], "confirmed by Lindsay"),
+ ("barn","The barn",80.0,45.0,
+  "The easternmost building and the oldest, closest to the water. Already living space before either "
+  "renovation; the kitchen today. Faces east toward Accabonac Harbor, red door on the north side.",
   [1,2,3,4,7,8,9,10,11,12,15,16,17,19,24], [13,14], "position approximate"),
- ("house","The dwelling",75.0,68.0,
-  "The survey labels this block <i>2 Story Frame Dwelling</i>. The fireplace here faces south toward the "
-  "Pollock-Krasner house; it was whitewashed in this renovation.",
-  [13,14,18,20,21,22], [8,9,11], "surveyed"),
- ("east","East terrace — where the pool was",81.0,53.0,
-  "<i>Brick Patio</i> on the survey. The in-ground pool stood here against the barn and was covered over "
-  "with bluestone. Fire pit and terrace now.",
+ ("house","The dwelling",75.0,72.0,
+  "The block the survey labels <i>2 Story Frame Dwelling</i>. The second floor, the roof framing and the "
+  "new brick chimney all belong to the previous renovation.",
+  [20,21,22], [11], "surveyed"),
+ ("east","East terrace — where the pool was",83.0,62.0,
+  "<i>Brick Patio</i> on the survey. The pool stood against the barn&rsquo;s north side and wrapped this "
+  "corner; bluestone covers that ground now, with the fire pit on it.",
   [23], [22,23], "confirmed by Lindsay"),
  ("wetland","The wetland edge",93.0,63.0,
   "The revegetation and non-disturbance buffer along the east line — 4,053 sq ft of switch grass, "
