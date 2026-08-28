@@ -396,6 +396,9 @@ header.top { padding:clamp(2.2rem,6vw,4rem) 0 1.5rem; }
 h1 { font-family:var(--serif); font-weight:400; font-size:clamp(2rem,5.5vw,3.6rem); line-height:1.05;
   margin:0; letter-spacing:-.015em; text-wrap:balance; }
 .lede { margin:1rem 0 0; max-width:62ch; color:var(--muted); font-size:clamp(.94rem,1.6vw,1.05rem); }
+.rule { margin:1.1rem 0 0; max-width:64ch; font-size:.84rem; color:var(--muted);
+  border-left:2px solid var(--accent); padding-left:.9rem; }
+.rule b { color:var(--ink); font-weight:500; }
 .layout { display:grid; gap:1.8rem; }
 @media (min-width:1000px) { .layout { grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
   gap:2.5rem; align-items:start; } }
@@ -485,7 +488,8 @@ def build_map():
 <header class="top">
   <p class="eyebrow">Gary Benz survey &middot; Grimes plan, 18 November 2021</p>
   <h1>Where each photograph was taken</h1>
-  <p class="lede">The surveyed site plan, with the album photographs from the renovation before this one and the finished-house photographs attached to the part of the property they show. Pick a marker.</p>
+  <p class="lede">The surveyed site plan, with the album photographs from the renovation before this one set against the finished house. Pick a marker.</p>
+  <p class="rule"><b>How things are filed:</b> an <b>interior</b> sits under the building it is inside; an <b>exterior</b> sits under the ground the camera was standing on. So every outside view of the barn is under the east terrace rather than under the barn. A few photographs show more than one thing and appear in more than one place.</p>
 </header>
 <div class="layout">
   <div>
@@ -519,7 +523,7 @@ def build_map():
   var panel=document.getElementById("panel");
   var order=Object.keys(D.zones);
   function thumbs(ids,pool){{
-    if(!ids.length) return '<p class="empty">Nothing in this set yet.</p>';
+    if(!ids.length) return '<p class="empty">Nothing from this period shows this part of the property.</p>';
     return '<div class="thumbs">'+ids.map(function(i){{
       var m=pool[String(i)]; if(!m) return "";
       return '<figure><img src="'+m.src+'" alt="'+m.c+'" data-cap="'+m.c+'" loading="lazy">'
