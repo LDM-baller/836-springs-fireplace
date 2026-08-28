@@ -239,9 +239,10 @@ ZONES = [
   "&mdash; outside views of it are filed under the east side, where the camera was standing.",
   [8,9,10,11,12,15,16,17,19,24], [11,12,13,14], "position approximate"),
  ("house","The two-storey block",75.0,72.0,
-  "The block the survey labels <i>2 Story Frame Dwelling</i>. Its upper floor was framed in the previous "
-  "renovation &mdash; the roof going on in the album is the roof over the primary bedroom. Downstairs: "
-  "the bunkroom and its bath. Upstairs: both bedrooms, the stair and the primary bath.",
+  "The block the survey labels <i>2 Story Frame Dwelling</i>, and a separate building from the great "
+  "room &mdash; <b>the primary bedroom is here, not above the great room.</b> The upper floor was framed "
+  "in the previous renovation, and the roof going on in the album is the roof over that bedroom. "
+  "Downstairs: the bunkroom and its bath. Upstairs: both bedrooms, the stair and the primary bath.",
   [20], [16,17,18,19,20,21], "surveyed"),
  ("east","The east side — terrace, pool, wetland",83.0,62.0,
   "<i>Brick Patio</i> on the survey, and the ground the pool stood on. The pool sat against the "
