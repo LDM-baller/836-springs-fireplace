@@ -505,7 +505,7 @@ def build_map():
 '  <p class="eyebrow">Gary Benz survey &middot; Grimes plan, 18 November 2021</p>\n'
 '  <h1>Where each photograph was taken</h1>\n'
 '  <p class="lede">The surveyed site plan, with the album photographs from the renovation before this one set against the finished house.</p>\n'
-'  <p class="rule"><b>How things are filed:</b> an <b>interior</b> sits under the building it is inside; an <b>exterior</b> sits under the ground the camera was standing on. So every outside view of the barn is under the east side rather than under the barn. A few photographs show more than one thing and appear in more than one place.</p>\n'
+'  <p class="rule"><b>How things are filed:</b> an <b>interior</b> sits under the building it is inside; an <b>exterior</b> sits under the ground the camera was standing on &mdash; so every outside view of the barn is under the east side rather than under the barn. Where a photograph is the only record of a building it goes with that building instead. <b>No photograph appears twice.</b></p>\n'
 '</header>\n'
 '<div class="layout">\n'
 '  <div class="mapwrap">\n'

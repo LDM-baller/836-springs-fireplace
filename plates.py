@@ -209,23 +209,27 @@ TRACE = [
 # Filing rule, set 2026-08-28 after Lindsay reviewed the map:
 #   * an INTERIOR photograph is filed under the building it is inside
 #   * an EXTERIOR photograph is filed under the ground the camera is standing on
-# So every outside view of the barn sits under the east terrace, which is where the
-# photographer was standing, not under the barn. A photograph may appear in more than
-# one zone where it genuinely shows more than one.
+#   * EXCEPT where a photograph is the only record of a building — then it goes with
+#     that building, so no zone is left with nothing to show
+#   * NO PHOTOGRAPH APPEARS TWICE. One photograph, one zone. Enforced by the check
+#     at the bottom of this file.
+# So every outside view of the barn sits under the east side, where the photographer
+# was standing, not under the barn.
 
 ZONES = [
  ("approach","Road &amp; approach",42.0,43.5,
   "Springs Fireplace Road runs along the west boundary and the driveway loops in to the motor court. "
   "The sunset side, and the only part of the property a visitor sees first. The two aerials here also "
-  "show the revegetation buffer along the east line.",
-  [5], [1,2,3,4,5], "surveyed"),
+  "show the revegetation buffer along the east line. Nothing in the album looks at the drive itself &mdash; "
+  "its one view of this side is filed with the front entrance, which is what it is actually a picture of.",
+  [], [1,2,3,4,5], "surveyed"),
  ("garage","The garage — now media room",60.0,38.0,
   "A long range under a screened porch, standing separate with a brick breezeway under a lattice arch "
   "running to its neighbour. Media room, mud room and laundry today.",
-  [5,6], [15], "confirmed by Lindsay"),
+  [6], [15], "confirmed by Lindsay"),
  ("entrance","Front entrance &amp; evening deck",63.0,56.0,
-  "The westernmost of the four buildings. The evening deck was built in front of and around it &mdash; "
-  "named for what it is used for, since this is the side the sun sets on.",
+  "The westernmost of the four buildings, with the garage range beside it. The evening deck was built "
+  "in front of and around it &mdash; named for what it is used for, since this is the side the sun sets on.",
   [5], [6,7,10], "confirmed by Lindsay"),
  ("greatroom","The great room",72.0,52.0,
   "Its own building once, standing between the entrance and the barn. It carries the brick chimney "
@@ -253,3 +257,18 @@ ZONES = [
 ]
 
 PAGES = [("", "Gallery"), ("history/", "Three renovations"), ("map/", "Site map")]
+
+
+# --- integrity check: no photograph may appear in two zones -------------------
+def _check():
+    import collections
+    for field, total in ((5, len(ALBUM)), (6, len(PLATES))):
+        seen = collections.Counter(i for z in ZONES for i in z[field])
+        dupes = {i: c for i, c in seen.items() if c > 1}
+        assert not dupes, "photo appears in %d zones: %s" % (max(dupes.values()), sorted(dupes))
+    covered = set(i for z in ZONES for i in z[5])
+    assert covered == set(ALBUM), "album not fully placed: %s" % sorted(set(ALBUM) - covered)
+    covered = set(i for z in ZONES for i in z[6])
+    assert covered == set(PLATES), "plates not fully placed: %s" % sorted(set(PLATES) - covered)
+
+_check()
